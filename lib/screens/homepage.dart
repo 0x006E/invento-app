@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:invento/components/appbar.dart';
+import 'package:invento/screens/openingstock.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,38 +10,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(""),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    return DefaultTabController(
+      length: CustomAppBar.length,
+      child: const Scaffold(
+        appBar: CustomAppBar(),
+        body: Padding(
+            padding: EdgeInsets.all(32.0),
+            child: TabBarView(children: [
+              OpeningStockPage(),
+              Center(child: Text('Content of Tab Two')),
+              Center(child: Text('Content of Tab Three')),
+              Center(child: Text('Content of Tab Four')),
+              Center(child: Text('Content of Tab Five')),
+              Center(child: Text('Content of Tab Six')),
+              Center(child: Text('Content of Tab Seven')),
+            ])),
       ),
     );
   }
