@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:invento/components/appbar.dart';
-import 'package:invento/screens/openingstock.dart';
-
-import '../components/modal.dart';
-import '../components/openingstockform.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:invento/logic/cubit/counter_cubit.dart';
+import 'package:invento/presentation/components/appbar.dart';
+import 'package:invento/presentation/components/modal.dart';
+import 'package:invento/presentation/components/openingstockform.dart';
+import 'package:invento/presentation/screens/counterpage.dart';
+import 'package:invento/presentation/screens/openingstock.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,12 +21,15 @@ class _HomePageState extends State<HomePage> {
       length: CustomAppBar.length,
       child: Scaffold(
         appBar: const CustomAppBar(),
-        body: const Padding(
+        body: Padding(
           padding: EdgeInsets.all(32.0),
           child: TabBarView(
             children: [
               OpeningStockPage(),
-              Center(child: Text('Content of Tab Two')),
+              BlocProvider(
+                create: (context) => CounterCubit(),
+                child: CounterPage(),
+              ),
               Center(child: Text('Content of Tab Three')),
               Center(child: Text('Content of Tab Four')),
               Center(child: Text('Content of Tab Five')),

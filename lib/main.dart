@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:invento/screens/homepage.dart';
+import 'package:invento/presentation/router/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 const MaterialColor primaryBlack = MaterialColor(
   _blackPrimaryValue,
   <int, Color>{
-    50: Color(0xFF000000),
+    50: Color(0xff110f2f),
     100: Color(0xFF000000),
     200: Color(0xFF000000),
     300: Color(0xFF000000),
@@ -24,7 +24,8 @@ const MaterialColor primaryBlack = MaterialColor(
 const int _blackPrimaryValue = 0xFF000000;
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final AppRouter _appRouter = AppRouter();
 
   // static const youEnabled = true;
   // static final _defaultLightColorScheme =
@@ -42,6 +43,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
+        listTileTheme: ListTileThemeData(
+          visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+        ),
+        checkboxTheme: const CheckboxThemeData(
+          visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          splashRadius: 0,
+        ),
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme,
         ),
@@ -92,7 +101,7 @@ class MyApp extends StatelessWidget {
       //       : _defaultDarkColorScheme,
       //   useMaterial3: true,
       // ),
-      home: const HomePage(),
+      onGenerateRoute: _appRouter.onGenerateRoute,
     );
     // });
   }

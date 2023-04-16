@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:invento/components/modal.dart';
-
-import '../components/openingstockform.dart';
+import 'package:invento/presentation/components/modal.dart';
+import 'package:invento/presentation/components/openingstockform.dart';
 
 class OpeningStockPage extends StatelessWidget {
   const OpeningStockPage({super.key});
