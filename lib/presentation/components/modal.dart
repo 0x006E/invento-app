@@ -9,7 +9,9 @@ void openModalBottomSheet(Widget? w, BuildContext context) {
     ),
     context: context,
     builder: (BuildContext context) {
-      return SizedBox(
+      return Padding(
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: w,
       );
     },

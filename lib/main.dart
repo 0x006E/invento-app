@@ -25,6 +25,7 @@ const int _blackPrimaryValue = 0xFF000000;
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
+
   final AppRouter _appRouter = AppRouter();
 
   // static const youEnabled = true;
@@ -44,14 +45,13 @@ class MyApp extends StatelessWidget {
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
         listTileTheme: ListTileThemeData(
-          visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+          visualDensity: VisualDensity(horizontal: -2, vertical: -2),
         ),
         checkboxTheme: const CheckboxThemeData(
-          visualDensity: VisualDensity(horizontal: -4, vertical: -4),
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: VisualDensity(horizontal: -2, vertical: -2),
           splashRadius: 0,
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(
+        textTheme: GoogleFonts.interTextTheme(
           Theme.of(context).textTheme,
         ),
         tabBarTheme: TabBarTheme(

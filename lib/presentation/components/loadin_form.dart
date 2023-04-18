@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:invento/logic/cubit/generic_form_stepper_cubit.dart';
+import 'package:reactive_forms/reactive_forms.dart';
+
+class LoadInForm extends StatelessWidget {
+  LoadInForm({Key? key}) : super(key: key);
+
+  final List<String> products = [
+    "35KG Cylinder",
+    "25KG Cylinder",
+    "15KG Cylinder"
+  ];
+
+  final form = fb.group({'products': fb.array<bool>([])});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<GenericFormStepperCubit, GenericFormStepperState>(
+      builder: (context, state) {
+        final stepperCubit = context.watch<GenericFormStepperCubit>();
+        return ReactiveForm(
+          formGroup: form,
+          child: Stepper(
+            controlsBuilder: (BuildContext context, ControlsDetails details) {
+              final _isLastStep =
+                  state.currentStep == getSteps(state.currentStep).length - 1;
+              return Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Row(children: [
+                    Expanded(
+                        child: ElevatedButton(
+                            child: Text(_isLastStep ? 'Send' : 'Next'),
+                            onPressed: details.onStepContinue)),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    if (state.currentStep != 0)
+                      Expanded(
+                          child: ElevatedButton(
+                              child: Text('Back'),
+                              onPressed: details.onStepCancel))
+                  ]));
+            },
+            type: StepperType.vertical,
+            currentStep: state.currentStep,
+            onStepCancel: () =>
+                state.currentStep == 0 ? null : stepperCubit.decrementStep(),
+            onStepContinue: () {
+              bool isLastStep =
+                  (state.currentStep == getSteps(state.currentStep).length - 1);
+              if (isLastStep) {
+                //Do something with this information
+              } else {
+                stepperCubit.incrementStep();
+              }
+            },
+            onStepTapped: (step) => stepperCubit.setStep(step),
+            steps: getSteps(state.currentStep),
+          ),
+        );
+      },
+    );
+  }
+
+  List<Step> getSteps(int currentStep) {
+    return <Step>[
+      Step(
+        state: currentStep > 0 ? StepState.complete : StepState.indexed,
+        isActive: currentStep >= 0,
+        title: const Text("Select Products"),
+        content: ListView(
+          shrinkWrap: true,
+          children: products
+              .map(
+                (e) => CheckboxListTile(
+                  value: true,
+                  title: Text(e),
+                  onChanged: (bool? value) {},
+                ),
+              )
+              .toList(),
+        ),
+      ),
+      Step(
+        state: currentStep > 1 ? StepState.complete : StepState.indexed,
+        isActive: currentStep >= 1,
+        title: const Text("Add Quantities"),
+        content: Column(
+          children: products
+              .map((e) => Column(
+                    children: [
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(e,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700, fontSize: 14))),
+                      SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Text('Full: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 14)),
+                          SizedBox(width: 8),
+                          Expanded(child: TextField()),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                    ],
+                  ))
+              .toList(),
+        ),
+      ),
+      Step(
+        state: currentStep > 2 ? StepState.complete : StepState.indexed,
+        isActive: currentStep >= 2,
+        title: const Text("Extra Details"),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            const Text("Vehicle No: "),
+            TextField(),
+            SizedBox(height: 8),
+            const Text("Invoice No: "),
+            TextField(),
+            SizedBox(height: 8),
+            const Text("Date & Time: "),
+            TextField(),
+          ],
+        ),
+      ),
+    ];
+  }
+}

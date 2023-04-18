@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:invento/logic/cubit/counter_cubit.dart';
 import 'package:invento/presentation/components/appbar.dart';
 import 'package:invento/presentation/components/modal.dart';
-import 'package:invento/presentation/components/openingstockform.dart';
-import 'package:invento/presentation/screens/counterpage.dart';
-import 'package:invento/presentation/screens/openingstock.dart';
+import 'package:invento/presentation/components/openingstock_form.dart';
+import 'package:invento/presentation/screens/counter_screen.dart';
+import 'package:invento/presentation/screens/loadin_screen.dart';
+import 'package:invento/presentation/screens/openingstock_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: const CustomAppBar(),
         body: Padding(
-          padding: EdgeInsets.all(32.0),
+          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
           child: TabBarView(
             children: [
               OpeningStockPage(),
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                 child: CounterPage(),
               ),
               Center(child: Text('Content of Tab Three')),
-              Center(child: Text('Content of Tab Four')),
+              LoadInScreen(),
               Center(child: Text('Content of Tab Five')),
               Center(child: Text('Content of Tab Six')),
               Center(child: Text('Content of Tab Seven')),
@@ -40,10 +41,10 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            openModalBottomSheet(const OpeningStockForm(), context);
+            openModalBottomSheet(OpeningStockForm(), context);
           },
-          label: const Text("Add"),
-          icon: const Icon(Icons.add),
+          label: const Text("Update"),
+          icon: const Icon(Icons.send),
         ),
       ),
     );
