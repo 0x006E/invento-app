@@ -21,6 +21,7 @@ jobs:
           channel: 'stable'
           cache: true
       - run: flutter pub get
+      - run: dart fix --apply
       - run: flutter analyze .
       - run: flutter build apk
       - uses: actions/upload-artifact@v1
