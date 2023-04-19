@@ -9,6 +9,8 @@ class OpeningStockForm extends StatelessWidget {
     'quantityDefective': [0, Validators.required],
   });
 
+  OpeningStockForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -30,7 +32,7 @@ class OpeningStockForm extends StatelessWidget {
                   const SizedBox(height: 15),
                   const Text("Product: "),
                   ReactiveDropdownField(
-                      formControlName: "product",
+                      formControlName: "productId",
                       items: const <DropdownMenuItem<String>>[
                         DropdownMenuItem(
                           value: "25KG Cylinder",
@@ -98,7 +100,7 @@ class OpeningStockForm extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         if (form.valid) {
-                          print(form.value);
+                          debugPrint(form.value.toString());
                         }
                       },
                       child: const Text(

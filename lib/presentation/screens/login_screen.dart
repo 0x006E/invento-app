@@ -16,21 +16,21 @@ class LoginPage extends StatelessWidget {
       body: Center(
           child: Container(
         width: deviceWidth * 0.75,
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Image(
-            image: AssetImage('images/invento.png'),
+            image: const AssetImage('images/invento.png'),
             width: deviceWidth * 0.35,
             fit: BoxFit.cover,
           ),
-          SizedBox(
+          const SizedBox(
             height: 48,
           ),
-          Text(
+          const Text(
             "Welcome back",
             style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.w700),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           ReactiveForm(
@@ -44,7 +44,7 @@ class LoginPage extends StatelessWidget {
                 ReactiveTextField(
                   formControlName: 'username',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 const Text("Password: "),
@@ -57,11 +57,11 @@ class LoginPage extends StatelessWidget {
                   child: Center(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size.fromHeight(
+                        minimumSize: const Size.fromHeight(
                             40), // fromHeight use double.infinity as width and 40 is the height
                       ),
                       onPressed: () {},
-                      child: Text("Login"),
+                      child: const Text("Login"),
                     ),
                   ),
                 ),
@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: "Don't have an account? ",
                         style: TextStyle(
                             fontSize: 12.0,
@@ -85,7 +85,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.of(context).pushNamedAndRemoveUntil(
                                 '/home', (route) => false);
                           },
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 12.0,
                             fontWeight: FontWeight.w700,
                             color: Colors.deepPurple),

@@ -8,7 +8,7 @@ class AppRouter {
       case "/":
         return MaterialPageRoute(builder: (_) => LoginPage());
       case "/home":
-        return MaterialPageRoute(builder: (_) => HomePage());
+        return MaterialPageRoute(builder: (_) => const HomePage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

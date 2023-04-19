@@ -23,7 +23,7 @@ class OpeningStockCard extends StatelessWidget {
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
-        side: BorderSide(
+        side: const BorderSide(
           color: Colors.black, //<-- SEE HERE
         ),
         borderRadius: BorderRadius.circular(4.0),
@@ -39,7 +39,7 @@ class OpeningStockCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   productName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -49,8 +49,8 @@ class OpeningStockCard extends StatelessWidget {
                     IconButton(
                       onPressed: onEdit,
                       padding: EdgeInsets.zero,
-                      constraints: BoxConstraints(),
-                      icon: Icon(
+                      constraints: const BoxConstraints(),
+                      icon: const Icon(
                         Icons.edit_rounded,
                         size: 18,
                         color: Colors.black,
@@ -59,8 +59,8 @@ class OpeningStockCard extends StatelessWidget {
                     IconButton(
                       onPressed: onDelete,
                       padding: EdgeInsets.zero,
-                      constraints: BoxConstraints(),
-                      icon: Icon(
+                      constraints: const BoxConstraints(),
+                      icon: const Icon(
                         Icons.delete,
                         size: 18,
                         color: Colors.redAccent,
@@ -70,47 +70,47 @@ class OpeningStockCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Flex(
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         "Full",
                         style: TextStyle(fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         fullCount.toString(),
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         "Empty",
                         style: TextStyle(fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         emptyCount.toString(),
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         "Defective",
                         style: TextStyle(fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         defectiveCount.toString(),
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),

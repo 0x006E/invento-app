@@ -15,7 +15,7 @@ class CounterPage extends StatelessWidget {
           FloatingActionButton(
             onPressed: () =>
                 BlocProvider.of<CounterCubit>(context).incrementCounter(),
-            child: Text("+"),
+            child: const Text("+"),
           ),
           BlocBuilder<CounterCubit, CounterState>(
             builder: (context, state) {
@@ -26,7 +26,7 @@ class CounterPage extends StatelessWidget {
           FloatingActionButton(
               onPressed: () =>
                   BlocProvider.of<CounterCubit>(context).decrementCounter(),
-              child: Text("-"))
+              child: const Text("-"))
         ],
       ),
     );

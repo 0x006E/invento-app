@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:invento/logic/cubit/generic_form_stepper_cubit.dart';
+import 'package:invento/presentation/components/loadin_card.dart';
 import 'package:invento/presentation/components/loadin_form.dart';
 import 'package:invento/presentation/components/modal.dart';
 
@@ -14,30 +15,31 @@ class LoadInScreen extends StatefulWidget {
 class _LoadInScreenState extends State<LoadInScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.add,
-                size: 18,
-              ),
-              SizedBox(width: 8),
-              Text("Add new")
-            ],
-          ),
-          onPressed: () {
-            openModalBottomSheet(
-                BlocProvider(
-                  create: (context) => GenericFormStepperCubit(),
-                  child: LoadInForm(),
-                ),
-                context);
-          },
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+        child: Column(
+          children: const [
+            LoadInCard(
+                vehicleNumber: "KL55BB5603",
+                invoiceNumber: "248298428",
+                products: ['', ''])
+          ],
         ),
-      ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          openModalBottomSheet(
+            BlocProvider(
+              create: (_) => GenericFormStepperCubit(),
+              child: LoadInForm(),
+            ),
+            context,
+          );
+        },
+        label: const Text("Add new"),
+        icon: const Icon(Icons.add),
+      ),
     );
   }
 }

@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
-        listTileTheme: ListTileThemeData(
+        listTileTheme: const ListTileThemeData(
           visualDensity: VisualDensity(horizontal: -2, vertical: -2),
         ),
         checkboxTheme: const CheckboxThemeData(

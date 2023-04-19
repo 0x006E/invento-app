@@ -13,11 +13,4 @@ class GenericFormStepperCubit extends Cubit<GenericFormStepperState> {
 
   void setStep(int stepIndex) =>
       emit(GenericFormStepperState(currentStep: stepIndex));
-
-  @override
-  void onChange(Change<GenericFormStepperState> change) {
-    print(change.currentState.currentStep);
-    print(change.nextState.currentStep);
-    super.onChange(change);
-  }
 }

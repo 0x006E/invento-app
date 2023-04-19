@@ -23,23 +23,23 @@ class LoadInForm extends StatelessWidget {
           formGroup: form,
           child: Stepper(
             controlsBuilder: (BuildContext context, ControlsDetails details) {
-              final _isLastStep =
+              final isLastStep0 =
                   state.currentStep == getSteps(state.currentStep).length - 1;
               return Container(
-                  margin: EdgeInsets.only(top: 20),
+                  margin: const EdgeInsets.only(top: 20),
                   child: Row(children: [
                     Expanded(
                         child: ElevatedButton(
-                            child: Text(_isLastStep ? 'Send' : 'Next'),
-                            onPressed: details.onStepContinue)),
+                            onPressed: details.onStepContinue,
+                            child: Text(isLastStep0 ? 'Send' : 'Next'))),
                     const SizedBox(
                       width: 12,
                     ),
                     if (state.currentStep != 0)
                       Expanded(
                           child: ElevatedButton(
-                              child: Text('Back'),
-                              onPressed: details.onStepCancel))
+                              onPressed: details.onStepCancel,
+                              child: const Text('Back')))
                   ]));
             },
             type: StepperType.vertical,
@@ -93,19 +93,22 @@ class LoadInForm extends StatelessWidget {
                       Align(
                           alignment: Alignment.centerLeft,
                           child: Text(e,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.w700, fontSize: 14))),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Row(
-                        children: [
+                        children: const [
                           Text('Full: ',
                               style: TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 14)),
                           SizedBox(width: 8),
-                          Expanded(child: TextField()),
+                          Expanded(
+                              child: TextField(
+                            keyboardType: TextInputType.number,
+                          )),
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                     ],
                   ))
               .toList(),
@@ -118,14 +121,16 @@ class LoadInForm extends StatelessWidget {
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            const Text("Vehicle No: "),
+            Text("Vehicle No: "),
             TextField(),
             SizedBox(height: 8),
-            const Text("Invoice No: "),
+            Text("Invoice No: "),
             TextField(),
             SizedBox(height: 8),
-            const Text("Date & Time: "),
-            TextField(),
+            Text("Date & Time: "),
+            TextField(
+              keyboardType: TextInputType.datetime,
+            ),
           ],
         ),
       ),
