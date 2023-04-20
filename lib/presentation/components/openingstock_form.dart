@@ -32,21 +32,22 @@ class OpeningStockForm extends StatelessWidget {
                   const SizedBox(height: 15),
                   const Text("Product: "),
                   ReactiveDropdownField(
-                      formControlName: "productId",
-                      items: const <DropdownMenuItem<String>>[
-                        DropdownMenuItem(
-                          value: "25KG Cylinder",
-                          child: Text("25KG Cylinder"),
-                        ),
-                        DropdownMenuItem(
-                          value: "Product 2",
-                          child: Text("Product 2"),
-                        ),
-                        DropdownMenuItem(
-                          value: "Product 3",
-                          child: Text("Product 3"),
-                        ),
-                      ]),
+                    formControlName: "productId",
+                    items: const <DropdownMenuItem<String>>[
+                      DropdownMenuItem(
+                        value: "25KG Cylinder",
+                        child: Text("25KG Cylinder"),
+                      ),
+                      DropdownMenuItem(
+                        value: "Product 2",
+                        child: Text("Product 2"),
+                      ),
+                      DropdownMenuItem(
+                        value: "Product 3",
+                        child: Text("Product 3"),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 15),
                   Row(
                     children: [

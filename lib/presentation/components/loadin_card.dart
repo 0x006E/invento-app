@@ -6,6 +6,7 @@ class LoadInCard extends StatelessWidget {
     Key? key,
     required this.vehicleNumber,
     required this.invoiceNumber,
+    required this.dateTime,
     required this.products,
     this.onDelete,
     this.onEdit,
@@ -13,6 +14,7 @@ class LoadInCard extends StatelessWidget {
 
   final String vehicleNumber;
   final String invoiceNumber;
+  final DateTime dateTime;
   final List<String> products;
 
   final void Function()? onDelete;
@@ -104,7 +106,7 @@ class LoadInCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  DateFormat('hh:ss a, dd MMM yyyy').format(DateTime.now()),
+                  DateFormat('hh:ss a, dd MMM yyyy').format(dateTime),
                   style: const TextStyle(color: Colors.grey),
                 ),
               ],

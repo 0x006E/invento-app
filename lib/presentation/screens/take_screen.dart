@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:invento/logic/cubit/generic_form_stepper_cubit.dart';
-import 'package:invento/presentation/components/loadout_card.dart';
-import 'package:invento/presentation/components/loadout_form.dart';
 import 'package:invento/presentation/components/modal.dart';
+import 'package:invento/presentation/components/stock_card.dart';
+import 'package:invento/presentation/components/stock_form.dart';
 
-class LoadOutScreen extends StatefulWidget {
-  const LoadOutScreen({Key? key}) : super(key: key);
+class TakeScreen extends StatefulWidget {
+  const TakeScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoadOutScreen> createState() => _LoadOutScreenState();
+  State<TakeScreen> createState() => _TakeScreenState();
 }
 
-class _LoadOutScreenState extends State<LoadOutScreen> {
+class _TakeScreenState extends State<TakeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +20,11 @@ class _LoadOutScreenState extends State<LoadOutScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
         child: Column(
           children: [
-            LoadOutCard(
-              vehicleNumber: "KL55BB5645",
-              ervNumber: "248298428",
-              products: ['', ''],
+            StockCard(
+              warehouseName: "Warehouse 1",
               dateTime: DateTime.now(),
-            )
+              products: ['', ''],
+            ),
           ],
         ),
       ),
@@ -34,7 +33,7 @@ class _LoadOutScreenState extends State<LoadOutScreen> {
           openModalBottomSheet(
             BlocProvider(
               create: (_) => GenericFormStepperCubit(),
-              child: LoadOutForm(),
+              child: StockForm(),
             ),
             context,
           );

@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class LoadOutCard extends StatelessWidget {
-  const LoadOutCard({
+class StockCard extends StatelessWidget {
+  const StockCard({
     Key? key,
-    required this.vehicleNumber,
-    required this.ervNumber,
+    required this.warehouseName,
     required this.dateTime,
     required this.products,
     this.onDelete,
     this.onEdit,
   }) : super(key: key);
 
-  final String vehicleNumber;
-  final String ervNumber;
+  final String warehouseName;
   final DateTime dateTime;
   final List<String> products;
 
@@ -45,12 +43,12 @@ class LoadOutCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Vehicle No: ",
+                      "Warehouse: ",
                       style: TextStyle(fontWeight: FontWeight.w700),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      vehicleNumber,
+                      warehouseName,
                       style: const TextStyle(color: Colors.grey),
                     ),
                   ],
@@ -78,21 +76,6 @@ class LoadOutCard extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "ERV No: ",
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  ervNumber,
-                  style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),

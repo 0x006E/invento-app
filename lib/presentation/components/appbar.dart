@@ -4,9 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
+
   static const List<String> tabText = [
     'Opening Stock',
-    'Trip',
+    'Take Stock',
+    'Give Stock',
     'Sale',
     'Load In',
     'Load Out',
@@ -14,6 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     'Day End'
   ];
   static final length = tabText.length;
+
   List<Widget> buildTabs() {
     return tabText
         .map((e) => Tab(
@@ -25,6 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(150);
+
   @override
   Widget build(BuildContext context) {
     return ClipPath(

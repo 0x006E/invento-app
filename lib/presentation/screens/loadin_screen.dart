@@ -19,11 +19,13 @@ class _LoadInScreenState extends State<LoadInScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
         child: Column(
-          children: const [
+          children: [
             LoadInCard(
-                vehicleNumber: "KL55BB5603",
-                invoiceNumber: "248298428",
-                products: ['', ''])
+              vehicleNumber: "KL55BB5603",
+              invoiceNumber: "248298428",
+              products: ['', ''],
+              dateTime: DateTime.now(),
+            )
           ],
         ),
       ),

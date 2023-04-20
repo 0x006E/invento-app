@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invento/constants/constants.dart';
+import 'package:invento/constants/routes.dart';
 import 'package:invento/presentation/screens/home_screen.dart';
 import 'package:invento/presentation/screens/login_screen.dart';
 
