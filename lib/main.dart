@@ -51,11 +51,11 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity(horizontal: -2, vertical: -2),
           splashRadius: 0,
         ),
-        textTheme: GoogleFonts.interTextTheme(
+        textTheme: GoogleFonts.nunitoSansTextTheme(
           Theme.of(context).textTheme,
         ),
         tabBarTheme: TabBarTheme(
-          labelStyle: GoogleFonts.poppins(
+          labelStyle: GoogleFonts.nunitoSans(
             fontWeight: FontWeight.w500,
             fontSize: 15,
           ),

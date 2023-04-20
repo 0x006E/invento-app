@@ -21,7 +21,8 @@ class _TakeScreenState extends State<TakeScreen> {
         child: Column(
           children: [
             StockCard(
-              warehouseName: "Warehouse 1",
+              partyType: "Warehouse",
+              partyName: "Warehouse 1",
               dateTime: DateTime.now(),
               products: ['', ''],
             ),

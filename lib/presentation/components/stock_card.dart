@@ -4,14 +4,16 @@ import 'package:intl/intl.dart';
 class StockCard extends StatelessWidget {
   const StockCard({
     Key? key,
-    required this.warehouseName,
+    required this.partyType,
+    required this.partyName,
     required this.dateTime,
     required this.products,
     this.onDelete,
     this.onEdit,
   }) : super(key: key);
 
-  final String warehouseName;
+  final String partyType;
+  final String partyName;
   final DateTime dateTime;
   final List<String> products;
 
@@ -42,14 +44,17 @@ class StockCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Warehouse: ",
-                      style: TextStyle(fontWeight: FontWeight.w700),
-                    ),
-                    const SizedBox(height: 4),
                     Text(
-                      warehouseName,
-                      style: const TextStyle(color: Colors.grey),
+                      partyName,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                    ),
+                    Text(
+                      partyType,
+                      style: const TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12),
                     ),
                   ],
                 ),
@@ -80,24 +85,20 @@ class StockCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
+            Text(
+              "${products.length} product(s) was changed in this item. Click item to edit",
+            ),
+            const SizedBox(height: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Date & Time: ",
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 8),
                 Text(
                   DateFormat('hh:ss a, dd MMM yyyy').format(dateTime),
                   style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            Text(
-              "${products.length} product(s) was changed in this item. Click item to edit",
-            )
           ],
         ),
       ),

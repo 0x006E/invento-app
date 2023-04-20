@@ -12,7 +12,8 @@ class StockForm extends StatelessWidget {
     "15KG Cylinder"
   ];
 
-  final form = fb.group({'products': fb.array<bool>([]), 'dummy': ''});
+  final form =
+      fb.group({'products': fb.array<bool>([]), 'dummy': '', 'dummy2': ''});
 
   @override
   Widget build(BuildContext context) {
@@ -169,9 +170,28 @@ class StockForm extends StatelessWidget {
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Warehouse: "),
+            Text("Type of party: "),
             ReactiveDropdownField(
               formControlName: 'dummy',
+              items: const <DropdownMenuItem<String>>[
+                DropdownMenuItem(
+                  value: "Warehouse",
+                  child: Text("Warehouse"),
+                ),
+                DropdownMenuItem(
+                  value: "Supplier",
+                  child: Text("Supplier"),
+                ),
+                DropdownMenuItem(
+                  value: "Truck",
+                  child: Text("Truck"),
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+            Text("Party: "),
+            ReactiveDropdownField(
+              formControlName: 'dummy2',
               items: const <DropdownMenuItem<String>>[
                 DropdownMenuItem(
                   value: "Warehouse 1",
