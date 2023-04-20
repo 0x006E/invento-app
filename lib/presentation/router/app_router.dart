@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:invento/constants/constants.dart';
 import 'package:invento/presentation/screens/home_screen.dart';
 import 'package:invento/presentation/screens/login_screen.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case "/":
+      case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => LoginPage());
-      case "/home":
+      case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomePage());
       default:
         return MaterialPageRoute(

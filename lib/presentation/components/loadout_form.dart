@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:invento/logic/cubit/generic_form_stepper_cubit.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class LoadInForm extends StatelessWidget {
-  LoadInForm({Key? key}) : super(key: key);
+class LoadOutForm extends StatelessWidget {
+  LoadOutForm({Key? key}) : super(key: key);
 
   final List<String> products = [
     "35KG Cylinder",
@@ -103,7 +103,26 @@ class LoadInForm extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 Text(
-                                  'Full: ',
+                                  'Empty: ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                TextField(
+                                  keyboardType: TextInputType.number,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'Defective: ',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
@@ -134,7 +153,7 @@ class LoadInForm extends StatelessWidget {
             Text("Vehicle No: "),
             TextField(),
             SizedBox(height: 8),
-            Text("Invoice No: "),
+            Text("ERV No: "),
             TextField(),
             SizedBox(height: 8),
             Text("Date & Time: "),
