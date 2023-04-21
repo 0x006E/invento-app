@@ -45,7 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           actions: [
             IconButton(
               icon: const Image(
-                image: AssetImage('images/profile.png'),
+                image: AssetImage('assets/profile.png'),
                 width: 22,
                 height: 22,
                 fit: BoxFit.scaleDown,

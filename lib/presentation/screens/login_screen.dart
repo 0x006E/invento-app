@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Image(
-            image: const AssetImage('images/invento.png'),
+            image: const AssetImage('assets/invento.png'),
             width: deviceWidth * 0.35,
             fit: BoxFit.cover,
           ),

@@ -36,13 +36,29 @@ class OpeningStockCard extends StatelessWidget {
             Flex(
               direction: Axis.horizontal,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  productName,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      productName,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      transform: Matrix4.translationValues(0.0, -7.0, 0.0),
+                      child: Text(
+                        "Product",
+                        style: const TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
+                      ),
+                    ),
+                  ],
                 ),
                 Row(
                   children: <Widget>[

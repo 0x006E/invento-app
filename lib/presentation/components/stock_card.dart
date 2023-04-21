@@ -49,12 +49,15 @@ class StockCard extends StatelessWidget {
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                     ),
-                    Text(
-                      partyType,
-                      style: const TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12),
+                    Container(
+                      transform: Matrix4.translationValues(2.0, -7.0, 0.0),
+                      child: Text(
+                        partyType,
+                        style: const TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
+                      ),
                     ),
                   ],
                 ),
