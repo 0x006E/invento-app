@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:invento/presentation/router/app_router.dart';
 
 void main() {
@@ -40,9 +39,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // return DynamicColorBuilder(builder: (lightColorScheme, darkColorScheme) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Invento',
       theme: ThemeData(
-        fontFamily: GoogleFonts.openSans().fontFamily,
+        fontFamily: "OpenSans",
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
         listTileTheme: const ListTileThemeData(
