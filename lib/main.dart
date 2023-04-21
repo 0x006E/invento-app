@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Invento',
       theme: ThemeData(
+        fontFamily: GoogleFonts.openSans().fontFamily,
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
         listTileTheme: const ListTileThemeData(
@@ -51,11 +52,8 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity(horizontal: -2, vertical: -2),
           splashRadius: 0,
         ),
-        textTheme: GoogleFonts.nunitoSansTextTheme(
-          Theme.of(context).textTheme,
-        ),
         tabBarTheme: TabBarTheme(
-          labelStyle: GoogleFonts.nunitoSans(
+          labelStyle: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 15,
           ),
