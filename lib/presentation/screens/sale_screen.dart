@@ -22,8 +22,8 @@ class _SaleScreenState extends State<SaleScreen> {
           children: [
             SaleCard(
               customerName: "Nithin",
-              totalPrice: 18,
-              totalQuantity: 18,
+              totalPrice: 1200.00,
+              totalQuantity: 20,
               dateTime: DateTime.now(),
             ),
           ],

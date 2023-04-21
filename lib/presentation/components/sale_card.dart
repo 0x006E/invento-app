@@ -14,7 +14,7 @@ class SaleCard extends StatelessWidget {
 
   final String customerName;
   final int totalQuantity;
-  final int totalPrice;
+  final double totalPrice;
   final DateTime dateTime;
 
   final void Function()? onDelete;
@@ -49,6 +49,16 @@ class SaleCard extends StatelessWidget {
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                     ),
+                    Container(
+                      transform: Matrix4.translationValues(0.0, -7.0, 0.0),
+                      child: Text(
+                        "Customer",
+                        style: const TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
@@ -78,68 +88,87 @@ class SaleCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Total Items",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: Text(
-                          totalQuantity.toString(),
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Total Price",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.grey.shade700,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                VerticalDivider(
-                  width: 8,
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Total Price",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
+                        SizedBox(
+                          height: 8,
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        child: Text(
-                          totalPrice.toString(),
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.grey.shade700,
+                        Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(8),
+                          child: Text(
+                            "₹ ${totalPrice.toString()}",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  VerticalDivider(
+                    width: 4,
+                    thickness: 2,
+                    color: Colors.grey.shade200,
+                  ),
+                  Flexible(
+                    flex: 0,
+                    fit: FlexFit.tight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Items",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade100,
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child: SizedBox(
+                              width: 48,
+                              height: 48,
+                              child: Center(
+                                child: Text(
+                                  totalQuantity.toString(),
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
