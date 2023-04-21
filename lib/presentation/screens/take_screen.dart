@@ -24,7 +24,7 @@ class _TakeScreenState extends State<TakeScreen> {
               partyType: "Warehouse",
               partyName: "Warehouse 1",
               dateTime: DateTime.now(),
-              products: ['', ''],
+              products: const ['', ''],
             ),
           ],
         ),

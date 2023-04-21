@@ -22,15 +22,15 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: const CustomAppBar(),
         body: TabBarView(
-          children: [
-            const OpeningStockPage(),
-            const TakeScreen(),
-            const GiveScreen(),
-            const SaleScreen(),
-            const LoadInScreen(),
-            const LoadOutScreen(),
-            const Center(child: Text('Content of Tab Six')),
-            const Center(child: Text('Content of Tab Seven')),
+          children: const [
+            OpeningStockPage(),
+            TakeScreen(),
+            GiveScreen(),
+            SaleScreen(),
+            LoadInScreen(),
+            LoadOutScreen(),
+            Center(child: Text('Content of Tab Six')),
+            Center(child: Text('Content of Tab Seven')),
           ],
         ),
       ),

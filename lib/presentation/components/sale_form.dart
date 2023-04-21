@@ -154,15 +154,15 @@ class SaleForm extends StatelessWidget {
               items: const <DropdownMenuItem<String>>[
                 DropdownMenuItem(
                   value: "Warehouse",
-                  child: Text("Warehouse"),
+                  child: Text("Customer 1"),
                 ),
                 DropdownMenuItem(
                   value: "Supplier",
-                  child: Text("Supplier"),
+                  child: Text("Customer 2"),
                 ),
                 DropdownMenuItem(
                   value: "Truck",
-                  child: Text("Truck"),
+                  child: Text("Customer 3"),
                 ),
               ],
             ),
@@ -184,7 +184,7 @@ class SaleForm extends StatelessWidget {
             },
             children: [
               TableRow(
-                children: [
+                children: const [
                   Text(
                     "Item",
                     style: TextStyle(
@@ -206,7 +206,7 @@ class SaleForm extends StatelessWidget {
               ),
               tableDivider,
               TableRow(
-                children: [
+                children: const [
                   Text(
                     "35KG Cylinder",
                   ),
@@ -222,7 +222,7 @@ class SaleForm extends StatelessWidget {
               ),
               tableDivider,
               TableRow(
-                children: [
+                children: const [
                   Text(
                     "25KG Cylinder",
                   ),
@@ -238,7 +238,7 @@ class SaleForm extends StatelessWidget {
               ),
               tableDivider,
               TableRow(
-                children: [
+                children: const [
                   Text(
                     "15KG Cylinder",
                   ),
@@ -254,7 +254,7 @@ class SaleForm extends StatelessWidget {
               ),
               tableDivider,
               TableRow(
-                children: [
+                children: const [
                   Text(
                     "Discount",
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -280,7 +280,7 @@ class SaleForm extends StatelessWidget {
               ),
               tableDivider,
               TableRow(
-                children: [
+                children: const [
                   Text(
                     "Total",
                     style: TextStyle(

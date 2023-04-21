@@ -23,7 +23,7 @@ class _LoadOutScreenState extends State<LoadOutScreen> {
             LoadOutCard(
               vehicleNumber: "KL55BB5645",
               ervNumber: "248298428",
-              products: ['', ''],
+              products: const ['', ''],
               dateTime: DateTime.now(),
             )
           ],

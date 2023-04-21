@@ -24,7 +24,7 @@ class _GiveScreenState extends State<GiveScreen> {
               partyType: "Warehouse",
               partyName: "Warehouse 1",
               dateTime: DateTime.now(),
-              products: ['', ''],
+              products: const ['', ''],
             ),
           ],
         ),

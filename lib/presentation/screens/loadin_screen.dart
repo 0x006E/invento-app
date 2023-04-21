@@ -23,7 +23,7 @@ class _LoadInScreenState extends State<LoadInScreen> {
             LoadInCard(
               vehicleNumber: "KL55BB5603",
               invoiceNumber: "248298428",
-              products: ['', ''],
+              products: const ['', ''],
               dateTime: DateTime.now(),
             )
           ],
