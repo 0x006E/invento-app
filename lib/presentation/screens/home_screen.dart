@@ -4,6 +4,7 @@ import 'package:invento/presentation/screens/give_screen.dart';
 import 'package:invento/presentation/screens/loadin_screen.dart';
 import 'package:invento/presentation/screens/loadout_screen.dart';
 import 'package:invento/presentation/screens/openingstock_screen.dart';
+import 'package:invento/presentation/screens/sale_screen.dart';
 import 'package:invento/presentation/screens/take_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             const OpeningStockPage(),
             const TakeScreen(),
             const GiveScreen(),
-            const Scaffold(body: Center(child: Text('Content of Tab Four'))),
+            const SaleScreen(),
             const LoadInScreen(),
             const LoadOutScreen(),
             const Center(child: Text('Content of Tab Six')),

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:invento/logic/cubit/generic_form_stepper_cubit.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class StockForm extends StatelessWidget {
-  StockForm({Key? key}) : super(key: key);
+class SaleForm extends StatelessWidget {
+  SaleForm({Key? key}) : super(key: key);
 
   final List<String> products = [
     "35KG Cylinder",
@@ -32,7 +32,7 @@ class StockForm extends StatelessWidget {
                     Expanded(
                         child: ElevatedButton(
                             onPressed: details.onStepContinue,
-                            child: Text(isLastStep0 ? 'Send' : 'Next'))),
+                            child: Text(isLastStep0 ? 'Submit' : 'Next'))),
                     const SizedBox(
                       width: 12,
                     ),
@@ -64,12 +64,28 @@ class StockForm extends StatelessWidget {
     );
   }
 
+  TableRow buildTableRowDivider({
+    required int cols,
+    double height = 1,
+    Color color = Colors.transparent,
+  }) =>
+      TableRow(
+        children: [
+          for (var i = 0; i < cols; i++)
+            Container(
+              height: height,
+              color: color,
+            )
+        ],
+      );
+
   List<Step> getSteps(int currentStep) {
+    final tableDivider = buildTableRowDivider(cols: 3, height: 4);
     return <Step>[
       Step(
         state: currentStep > 0 ? StepState.complete : StepState.indexed,
         isActive: currentStep >= 0,
-        title: const Text("Select Products"),
+        title: const Text("Select items"),
         content: ListView(
           shrinkWrap: true,
           children: products
@@ -104,45 +120,7 @@ class StockForm extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 Text(
-                                  'Full: ',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                SizedBox(height: 8),
-                                TextField(
-                                  keyboardType: TextInputType.number,
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 8),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Empty: ',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                SizedBox(height: 8),
-                                TextField(
-                                  keyboardType: TextInputType.number,
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 8),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Defective: ',
+                                  'Quantity: ',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
@@ -166,11 +144,11 @@ class StockForm extends StatelessWidget {
       Step(
         state: currentStep > 2 ? StepState.complete : StepState.indexed,
         isActive: currentStep >= 2,
-        title: const Text("Extra Details"),
+        title: const Text("Select Customer"),
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Type of party: "),
+            Text("Customer: "),
             ReactiveDropdownField(
               formControlName: 'dummy',
               items: const <DropdownMenuItem<String>>[
@@ -189,28 +167,141 @@ class StockForm extends StatelessWidget {
               ],
             ),
             SizedBox(height: 8),
-            Text("Party: "),
-            ReactiveDropdownField(
-              formControlName: 'dummy2',
-              items: const <DropdownMenuItem<String>>[
-                DropdownMenuItem(
-                  value: "Warehouse 1",
-                  child: Text("Warehouse 1"),
-                ),
-                DropdownMenuItem(
-                  value: "Warehouse 2",
-                  child: Text("Warehouse 2"),
-                ),
-                DropdownMenuItem(
-                  value: "Warehouse 3",
-                  child: Text("Warehouse 3"),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
+            Text("Discount: "),
+            TextField(),
           ],
         ),
       ),
+      Step(
+          state: currentStep > 2 ? StepState.complete : StepState.indexed,
+          isActive: currentStep >= 2,
+          title: const Text("Summary"),
+          content: Table(
+            columnWidths: const {
+              0: FlexColumnWidth(0.4),
+              1: FlexColumnWidth(0.2),
+              2: FlexColumnWidth(0.4),
+            },
+            children: [
+              TableRow(
+                children: [
+                  Text(
+                    "Item",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    "Qty",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  Text(
+                    "Price",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                ],
+              ),
+              tableDivider,
+              TableRow(
+                children: [
+                  Text(
+                    "35KG Cylinder",
+                  ),
+                  Text(
+                    "2",
+                    textAlign: TextAlign.right,
+                  ),
+                  Text(
+                    "300.00",
+                    textAlign: TextAlign.right,
+                  ),
+                ],
+              ),
+              tableDivider,
+              TableRow(
+                children: [
+                  Text(
+                    "25KG Cylinder",
+                  ),
+                  Text(
+                    "10",
+                    textAlign: TextAlign.right,
+                  ),
+                  Text(
+                    "500.00",
+                    textAlign: TextAlign.right,
+                  ),
+                ],
+              ),
+              tableDivider,
+              TableRow(
+                children: [
+                  Text(
+                    "15KG Cylinder",
+                  ),
+                  Text(
+                    "8",
+                    textAlign: TextAlign.right,
+                  ),
+                  Text(
+                    "400.00",
+                    textAlign: TextAlign.right,
+                  ),
+                ],
+              ),
+              tableDivider,
+              TableRow(
+                children: [
+                  Text(
+                    "Discount",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "-400.00",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              tableDivider,
+              tableDivider,
+              buildTableRowDivider(
+                cols: 3,
+                height: 2,
+                color: Colors.grey.shade300,
+              ),
+              tableDivider,
+              TableRow(
+                children: [
+                  Text(
+                    "Total",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    "",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  Text(
+                    "1200.00",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                ],
+              ),
+            ],
+          )),
     ];
   }
 }

@@ -156,10 +156,6 @@ class LoadOutForm extends StatelessWidget {
             Text("ERV No: "),
             TextField(),
             SizedBox(height: 8),
-            Text("Date & Time: "),
-            TextField(
-              keyboardType: TextInputType.datetime,
-            ),
           ],
         ),
       ),

@@ -137,10 +137,6 @@ class LoadInForm extends StatelessWidget {
             Text("Invoice No: "),
             TextField(),
             SizedBox(height: 8),
-            Text("Date & Time: "),
-            TextField(
-              keyboardType: TextInputType.datetime,
-            ),
           ],
         ),
       ),
