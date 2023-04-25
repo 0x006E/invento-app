@@ -5,12 +5,12 @@ import 'package:invento/data/models/PageableContent/pageable_content.dart';
 import 'package:invento/data/models/WarehouseLoadOut/warehouse_load_out.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'warehouse_load_out_service.g.dart';
+part 'warehouse_load_out_controller.g.dart';
 
 @RestApi(baseUrl: apiRoutes.BASE_URL + apiRoutes.WAREHOUSE_LOAD_OUT_ENDPOINT)
-abstract class WarehouseLoadOutService {
-  factory WarehouseLoadOutService(Dio dio, {String baseUrl}) =
-      _WarehouseLoadOutService;
+abstract class WarehouseLoadOutController {
+  factory WarehouseLoadOutController(Dio dio, {String baseUrl}) =
+      _WarehouseLoadOutController;
 
   @GET('/')
   Future<PageableContent<WarehouseLoadOut>> getWarehouseLoadIns(

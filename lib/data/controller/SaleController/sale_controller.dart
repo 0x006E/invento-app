@@ -5,11 +5,11 @@ import 'package:invento/data/models/PageableContent/pageable_content.dart';
 import 'package:invento/data/models/Sale/sale.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'sale_service.g.dart';
+part 'sale_controller.g.dart';
 
 @RestApi(baseUrl: apiRoutes.BASE_URL + apiRoutes.SALE_ENDPOINT)
-abstract class SaleService {
-  factory SaleService(Dio dio, {String baseUrl}) = _SaleService;
+abstract class SaleController {
+  factory SaleController(Dio dio, {String baseUrl}) = _SaleController;
 
   @GET('/')
   Future<PageableContent<Sale>> getSales(

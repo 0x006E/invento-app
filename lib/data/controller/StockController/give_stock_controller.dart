@@ -5,11 +5,11 @@ import 'package:invento/data/models/PageableContent/pageable_content.dart';
 import 'package:invento/data/models/Stock/stock.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'give_stock_service.g.dart';
+part 'give_stock_controller.g.dart';
 
 @RestApi(baseUrl: apiRoutes.BASE_URL + apiRoutes.TAKE_STOCK_ENDPOINT)
-abstract class GiveStockService {
-  factory GiveStockService(Dio dio, {String baseUrl}) = _GiveStockService;
+abstract class GiveStockController {
+  factory GiveStockController(Dio dio, {String baseUrl}) = _GiveStockController;
 
   @GET('/')
   Future<PageableContent<Stock>> getGiveStocks(

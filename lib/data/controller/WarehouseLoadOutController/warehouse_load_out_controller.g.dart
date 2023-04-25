@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'warehouse_load_out_service.dart';
+part of 'warehouse_load_out_controller.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'warehouse_load_out_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _WarehouseLoadOutService implements WarehouseLoadOutService {
-  _WarehouseLoadOutService(
+class _WarehouseLoadOutController implements WarehouseLoadOutController {
+  _WarehouseLoadOutController(
     this._dio, {
     this.baseUrl,
   }) {

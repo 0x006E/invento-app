@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'warehouse_load_in_service.dart';
+part of 'opening_stock_controller.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,13 +8,13 @@ part of 'warehouse_load_in_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _WarehouseLoadInService implements WarehouseLoadInService {
-  _WarehouseLoadInService(
+class _OpeningStockController implements OpeningStockController {
+  _OpeningStockController(
     this._dio, {
     this.baseUrl,
   }) {
     baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/warehouse/load-in';
+        'https://invento-server-production-ceee.up.railway.app/api/stock/opening';
   }
 
   final Dio _dio;
@@ -22,7 +22,7 @@ class _WarehouseLoadInService implements WarehouseLoadInService {
   String? baseUrl;
 
   @override
-  Future<PageableContent<WarehouseLoadIn>> getWarehouseLoadIns({
+  Future<PageableContent<OpeningStock>> getOpeningStocks({
     required page,
     size,
   }) async {
@@ -35,7 +35,7 @@ class _WarehouseLoadInService implements WarehouseLoadInService {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PageableContent<WarehouseLoadIn>>(Options(
+        _setStreamType<PageableContent<OpeningStock>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -47,21 +47,21 @@ class _WarehouseLoadInService implements WarehouseLoadInService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PageableContent<WarehouseLoadIn>.fromJson(
+    final value = PageableContent<OpeningStock>.fromJson(
       _result.data!,
-      (json) => WarehouseLoadIn.fromJson(json as Map<String, dynamic>),
+      (json) => OpeningStock.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<WarehouseLoadIn> getWarehouseLoadInById(id) async {
+  Future<OpeningStock> getOpeningStockById(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<WarehouseLoadIn>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<OpeningStock>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -73,19 +73,19 @@ class _WarehouseLoadInService implements WarehouseLoadInService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = WarehouseLoadIn.fromJson(_result.data!);
+    final value = OpeningStock.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<WarehouseLoadIn> createWarehouseLoadIn(warehouseLoadIn) async {
+  Future<OpeningStock> createOpeningStock(openingStock) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(warehouseLoadIn.toJson());
+    _data.addAll(openingStock.toJson());
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<WarehouseLoadIn>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<OpeningStock>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -97,19 +97,19 @@ class _WarehouseLoadInService implements WarehouseLoadInService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = WarehouseLoadIn.fromJson(_result.data!);
+    final value = OpeningStock.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<WarehouseLoadIn> updateWarehouseLoadIn(warehouseLoadIn) async {
+  Future<OpeningStock> updateOpeningStock(openingStock) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(warehouseLoadIn.toJson());
+    _data.addAll(openingStock.toJson());
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<WarehouseLoadIn>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<OpeningStock>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -121,7 +121,7 @@ class _WarehouseLoadInService implements WarehouseLoadInService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = WarehouseLoadIn.fromJson(_result.data!);
+    final value = OpeningStock.fromJson(_result.data!);
     return value;
   }
 

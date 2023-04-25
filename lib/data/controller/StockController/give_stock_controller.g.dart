@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'take_stock_service.dart';
+part of 'give_stock_controller.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'take_stock_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _TakeStockService implements TakeStockService {
-  _TakeStockService(
+class _GiveStockController implements GiveStockController {
+  _GiveStockController(
     this._dio, {
     this.baseUrl,
   }) {
@@ -22,7 +22,7 @@ class _TakeStockService implements TakeStockService {
   String? baseUrl;
 
   @override
-  Future<PageableContent<Stock>> getTakeStocks({
+  Future<PageableContent<Stock>> getGiveStocks({
     required page,
     size,
   }) async {
@@ -55,7 +55,7 @@ class _TakeStockService implements TakeStockService {
   }
 
   @override
-  Future<Stock> getTakeStockById(id) async {
+  Future<Stock> getGiveStockById(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -78,7 +78,7 @@ class _TakeStockService implements TakeStockService {
   }
 
   @override
-  Future<Stock> createTakeStock(stock) async {
+  Future<Stock> createGiveStock(stock) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -102,7 +102,7 @@ class _TakeStockService implements TakeStockService {
   }
 
   @override
-  Future<Stock> updateTakeStock(stock) async {
+  Future<Stock> updateGiveStock(stock) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

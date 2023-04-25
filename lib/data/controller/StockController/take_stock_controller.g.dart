@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sale_service.dart';
+part of 'take_stock_controller.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,13 +8,13 @@ part of 'sale_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _SaleService implements SaleService {
-  _SaleService(
+class _TakeStockController implements TakeStockController {
+  _TakeStockController(
     this._dio, {
     this.baseUrl,
   }) {
     baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/sale';
+        'https://invento-server-production-ceee.up.railway.app/api/stock/take';
   }
 
   final Dio _dio;
@@ -22,7 +22,7 @@ class _SaleService implements SaleService {
   String? baseUrl;
 
   @override
-  Future<PageableContent<Sale>> getSales({
+  Future<PageableContent<Stock>> getTakeStocks({
     required page,
     size,
   }) async {
@@ -35,7 +35,7 @@ class _SaleService implements SaleService {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PageableContent<Sale>>(Options(
+        _setStreamType<PageableContent<Stock>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -47,21 +47,21 @@ class _SaleService implements SaleService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PageableContent<Sale>.fromJson(
+    final value = PageableContent<Stock>.fromJson(
       _result.data!,
-      (json) => Sale.fromJson(json as Map<String, dynamic>),
+      (json) => Stock.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<Sale> getSaleById(id) async {
+  Future<Stock> getTakeStockById(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Sale>(Options(
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Stock>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -73,19 +73,19 @@ class _SaleService implements SaleService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Sale.fromJson(_result.data!);
+    final value = Stock.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<Sale> createSale(sale) async {
+  Future<Stock> createTakeStock(stock) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(sale.toJson());
+    _data.addAll(stock.toJson());
     final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Sale>(Options(
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Stock>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -97,19 +97,19 @@ class _SaleService implements SaleService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Sale.fromJson(_result.data!);
+    final value = Stock.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<Sale> updateSale(sale) async {
+  Future<Stock> updateTakeStock(stock) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(sale.toJson());
+    _data.addAll(stock.toJson());
     final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Sale>(Options(
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Stock>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -121,7 +121,7 @@ class _SaleService implements SaleService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Sale.fromJson(_result.data!);
+    final value = Stock.fromJson(_result.data!);
     return value;
   }
 
