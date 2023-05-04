@@ -14,7 +14,7 @@ class _GiveStockProvider implements GiveStockProvider {
     this.baseUrl,
   }) {
     baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/stock/take';
+        'https://invento-server-production-ceee.up.railway.app/api/stock/give';
   }
 
   final Dio _dio;

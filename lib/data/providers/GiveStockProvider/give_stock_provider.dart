@@ -3,12 +3,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:invento/constants/api_routes.dart' as api_routes;
 import 'package:invento/data/models/GiveStock/give_stock.dart';
 import 'package:invento/data/models/PageableContent/pageable_content.dart';
-import 'package:invento/data/providers/IBaseProvider.dart';
+import 'package:invento/data/providers/ibase_provider.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'give_stock_provider.g.dart';
 
-@RestApi(baseUrl: api_routes.BASE_URL + api_routes.TAKE_STOCK_ENDPOINT)
+@RestApi(baseUrl: api_routes.BASE_URL + api_routes.GIVE_STOCK_ENDPOINT)
 abstract class GiveStockProvider implements IBaseProvider<GiveStock> {
   factory GiveStockProvider(Dio dio, {String baseUrl}) = _GiveStockProvider;
 

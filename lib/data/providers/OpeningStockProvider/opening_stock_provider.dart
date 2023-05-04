@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:invento/constants/api_routes.dart' as api_routes;
 import 'package:invento/data/models/OpeningStock/opening_stock.dart';
 import 'package:invento/data/models/PageableContent/pageable_content.dart';
-import 'package:invento/data/providers/IBaseProvider.dart';
+import 'package:invento/data/providers/ibase_provider.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'opening_stock_provider.g.dart';
@@ -22,6 +22,9 @@ abstract class OpeningStockProvider implements IBaseProvider<OpeningStock> {
   @override
   @GET("/{id}")
   Future<OpeningStock> getById(@Path("id") String id);
+
+  @GET("/party/{id}")
+  Future<OpeningStock> getByPartyId(@Path("id") String id);
 
   @override
   @POST('/')

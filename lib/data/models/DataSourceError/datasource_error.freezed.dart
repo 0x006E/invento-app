@@ -20,7 +20,7 @@ DataSourceError _$DataSourceErrorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DataSourceError {
-  int get statusCode => throw _privateConstructorUsedError;
+  int? get statusCode => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $DataSourceErrorCopyWith<$Res> {
           DataSourceError value, $Res Function(DataSourceError) then) =
       _$DataSourceErrorCopyWithImpl<$Res, DataSourceError>;
   @useResult
-  $Res call({int statusCode, String message});
+  $Res call({int? statusCode, String message});
 }
 
 /// @nodoc
@@ -51,14 +51,14 @@ class _$DataSourceErrorCopyWithImpl<$Res, $Val extends DataSourceError>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? statusCode = null,
+    Object? statusCode = freezed,
     Object? message = null,
   }) {
     return _then(_value.copyWith(
-      statusCode: null == statusCode
+      statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,7 @@ abstract class _$$_DataSourceErrorCopyWith<$Res>
       __$$_DataSourceErrorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int statusCode, String message});
+  $Res call({int? statusCode, String message});
 }
 
 /// @nodoc
@@ -89,14 +89,14 @@ class __$$_DataSourceErrorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? statusCode = null,
+    Object? statusCode = freezed,
     Object? message = null,
   }) {
     return _then(_$_DataSourceError(
-      statusCode: null == statusCode
+      statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -108,20 +108,15 @@ class __$$_DataSourceErrorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DataSourceError implements _DataSourceError {
-  const _$_DataSourceError({required this.statusCode, required this.message});
+  const _$_DataSourceError({this.statusCode, required this.message});
 
   factory _$_DataSourceError.fromJson(Map<String, dynamic> json) =>
       _$$_DataSourceErrorFromJson(json);
 
   @override
-  final int statusCode;
+  final int? statusCode;
   @override
   final String message;
-
-  @override
-  String toString() {
-    return 'DataSourceError(statusCode: $statusCode, message: $message)';
-  }
 
   @override
   bool operator ==(dynamic other) {
@@ -153,14 +148,14 @@ class _$_DataSourceError implements _DataSourceError {
 
 abstract class _DataSourceError implements DataSourceError {
   const factory _DataSourceError(
-      {required final int statusCode,
+      {final int? statusCode,
       required final String message}) = _$_DataSourceError;
 
   factory _DataSourceError.fromJson(Map<String, dynamic> json) =
       _$_DataSourceError.fromJson;
 
   @override
-  int get statusCode;
+  int? get statusCode;
   @override
   String get message;
   @override

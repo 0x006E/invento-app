@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:invento/injection.dart';
 import 'package:invento/presentation/router/app_router.dart';
 
 void main() {
+  setupDependencies();
   runApp(MyApp());
 }
 

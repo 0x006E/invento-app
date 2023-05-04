@@ -8,7 +8,7 @@ part of 'datasource_error.dart';
 
 _$_DataSourceError _$$_DataSourceErrorFromJson(Map<String, dynamic> json) =>
     _$_DataSourceError(
-      statusCode: json['statusCode'] as int,
+      statusCode: json['statusCode'] as int?,
       message: json['message'] as String,
     );
 
