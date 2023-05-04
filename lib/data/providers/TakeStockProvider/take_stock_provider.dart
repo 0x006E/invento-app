@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:invento/constants/api_routes.dart' as api_routes;
 import 'package:invento/data/models/PageableContent/pageable_content.dart';
 import 'package:invento/data/models/TakeStock/take_stock.dart';
-import 'package:invento/data/providers/IBaseProvider.dart';
+import 'package:invento/data/providers/ibase_provider.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'take_stock_provider.g.dart';

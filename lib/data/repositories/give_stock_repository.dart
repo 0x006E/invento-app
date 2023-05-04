@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:invento/data/models/DataSourceError/datasource_error.dart';
 import 'package:invento/data/models/GiveStock/give_stock.dart';
 import 'package:invento/data/models/PageableContent/pageable_content.dart';
-import 'package:invento/data/repositories/IBaseRepository.dart';
+import 'package:invento/data/repositories/ibase_repository.dart';
 
 class GiveStockRepository implements IBaseRepository<GiveStock> {
   final int size;
@@ -10,26 +10,26 @@ class GiveStockRepository implements IBaseRepository<GiveStock> {
   const GiveStockRepository({this.size = 10});
 
   @override
-  Future<Either<GiveStock, DataSourceError>> create(GiveStock body) {
+  Future<Either<DataSourceError, GiveStock>> create(GiveStock body) {
     // TODO: implement create
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<GiveStock, DataSourceError>> getById(String id) {
+  Future<Either<DataSourceError, GiveStock>> getById(String id) {
     // TODO: implement getById
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<PageableContent<GiveStock>, DataSourceError>> getPage(
+  Future<Either<DataSourceError, PageableContent<GiveStock>>> getPage(
       {required int page, int? size}) {
     // TODO: implement getPage
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<GiveStock, DataSourceError>> update(GiveStock body) {
+  Future<Either<DataSourceError, GiveStock>> update(GiveStock body) {
     // TODO: implement update
     throw UnimplementedError();
   }
