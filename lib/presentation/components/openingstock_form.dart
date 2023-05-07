@@ -318,23 +318,22 @@ class OpeningStockProductsLoaded extends StatelessWidget {
             return SizedBox(
               height: 0.3 * logicalHeight,
               child: Center(
-                child: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      LottieBuilder.asset(
-                        "assets/successLottie.json",
-                        repeat: false,
-                        height: 100,
-                      ),
-                      Text(
-                        state.message,
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    LottieBuilder.asset(
+                      "assets/successLottie.json",
+                      repeat: false,
+                      height: 100,
+                    ),
+                    Text(
+                      state.message,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
             );
