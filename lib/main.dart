@@ -3,6 +3,7 @@ import 'package:invento/injection.dart';
 import 'package:invento/presentation/router/app_router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   setupDependencies();
   runApp(MyApp());
 }

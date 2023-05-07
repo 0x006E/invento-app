@@ -1,14 +1,16 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:invento/data/models/DataSourceError/datasource_error.dart';
 import 'package:invento/data/models/PageableContent/pageable_content.dart';
 import 'package:invento/data/models/Product/product.dart';
 import 'package:invento/data/providers/ProductProvider/product_provider.dart';
 import 'package:invento/data/repositories/ibase_repository.dart';
+import 'package:invento/utils/error_handler.dart';
 
 class ProductRepository implements IBaseRepository<Product> {
   final int size;
   final ProductProvider remoteDataSource;
+  static const DataSourceError badRequest =
+      DataSourceError(statusCode: 400, message: "Request badly formed");
 
   const ProductRepository({this.size = 10, required this.remoteDataSource});
 
@@ -19,22 +21,12 @@ class ProductRepository implements IBaseRepository<Product> {
 
   @override
   Future<Either<DataSourceError, Product>> getById(String id) async {
-    throw UnimplementedError("Unnecessary Endpoint");
+    if (id.isEmpty) throw badRequest;
+    return handleError(() async => await remoteDataSource.getById(id));
   }
 
   Future<Either<DataSourceError, List<Product>>> getAll() async {
-    try {
-      var response = await remoteDataSource.getAll();
-      return Right(response);
-    } on DioError catch (err) {
-      if (err.type == DioErrorType.badResponse) {
-        var e = DataSourceError.fromJson(
-            err.response?.data as Map<String, dynamic>);
-        return Left(e);
-      } else {
-        return Left(DataSourceError(statusCode: 0, message: err.message ?? ""));
-      }
-    }
+    return handleError(() async => await remoteDataSource.getAll());
   }
 
   @override

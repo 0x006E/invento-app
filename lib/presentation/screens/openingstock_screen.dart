@@ -26,10 +26,18 @@ class _OpeningStockPageState extends State<OpeningStockPage>
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
         child: Column(
           children: [
-            BlocBuilder<OpeningStockCubit, OpeningStockState>(
+            BlocConsumer<OpeningStockCubit, OpeningStockState>(
+              listener: (context, state) => state.maybeWhen(
+                  loaded: (_, status, __) => status != null
+                      ? ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(status)))
+                      : null,
+                  orElse: () {
+                    return null;
+                  }),
               builder: (context, state) {
                 return state.when(
-                  loading: (_) => Expanded(
+                  loading: () => Expanded(
                     child: Center(
                       child: LoadingAnimationWidget.halfTriangleDot(
                         color: Colors.black,
@@ -37,7 +45,7 @@ class _OpeningStockPageState extends State<OpeningStockPage>
                       ),
                     ),
                   ),
-                  loaded: (openingStock, _) => Expanded(
+                  loaded: (openingStock, _, __) => Expanded(
                     child: Column(
                       children: [
                         ElevatedButton(
@@ -53,13 +61,7 @@ class _OpeningStockPageState extends State<OpeningStockPage>
                             ],
                           ),
                           onPressed: () {
-                            openModalBottomSheet(
-                                BlocProvider.value(
-                                  value: BlocProvider.of<ProductCubit>(
-                                      parentContext),
-                                  child: OpeningStockForm(),
-                                ),
-                                parentContext);
+                            openOpeningStockForm(context);
                           },
                         ),
                         openingStock.items.isEmpty
@@ -84,18 +86,42 @@ class _OpeningStockPageState extends State<OpeningStockPage>
                                 itemCount: openingStock.items.length,
                                 shrinkWrap: true,
                                 itemBuilder:
-                                    (BuildContext context, int? index) =>
+                                    (BuildContext context, int index) =>
                                         OpeningStockCard(
-                                  fullCount: 0,
-                                  emptyCount: 10,
-                                  defectiveCount: 20,
-                                  productName: '25KG Cylinder',
+                                  fullCount:
+                                      openingStock.items[index].quantityFull,
+                                  emptyCount:
+                                      openingStock.items[index].quantityEmpty,
+                                  defectiveCount: openingStock
+                                      .items[index].quantityDefective,
+                                  productId:
+                                      openingStock.items[index].productId,
+                                  onDelete: () => context
+                                      .read<OpeningStockCubit>()
+                                      .deleteItem(
+                                        productId:
+                                            openingStock.items[index].productId,
+                                      ),
+                                  onEdit: () {
+                                    openOpeningStockForm(
+                                      context,
+                                      isEdit: true,
+                                      quantityFull: openingStock
+                                          .items[index].quantityFull,
+                                      quantityEmpty: openingStock
+                                          .items[index].quantityEmpty,
+                                      quantityDefective: openingStock
+                                          .items[index].quantityDefective,
+                                      productId:
+                                          openingStock.items[index].productId,
+                                    );
+                                  },
                                 ),
                               ),
                       ],
                     ),
                   ),
-                  error: (message, code, _) => Expanded(
+                  error: (message, code) => Expanded(
                     child: ErrorInfo(
                       errorMessage: message,
                       errorCode: code ?? 0,
@@ -108,6 +134,32 @@ class _OpeningStockPageState extends State<OpeningStockPage>
         ),
       ),
     );
+  }
+
+  void openOpeningStockForm(BuildContext context,
+      {bool isEdit = false,
+      String? productId,
+      int? quantityFull,
+      int? quantityEmpty,
+      int? quantityDefective}) {
+    return openModalBottomSheet(
+        MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: BlocProvider.of<ProductCubit>(context),
+              ),
+              BlocProvider.value(
+                value: BlocProvider.of<OpeningStockCubit>(context),
+              ),
+            ],
+            child: OpeningStockForm(
+              isEdit: isEdit,
+              productId: productId,
+              quantityDefective: quantityDefective,
+              quantityEmpty: quantityEmpty,
+              quantityFull: quantityFull,
+            )),
+        context);
   }
 
   @override

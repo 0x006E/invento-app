@@ -16,31 +16,29 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$OpeningStockState {
-  bool get initialFetch => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool initialFetch) loading,
-    required TResult Function(OpeningStock openingStock, bool initialFetch)
-        loaded,
+    required TResult Function() loading,
     required TResult Function(
-            String errorMessage, int? errorCode, bool initialFetch)
-        error,
+            OpeningStock openingStock, String? status, bool isError)
+        loaded,
+    required TResult Function(String errorMessage, int? errorCode) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool initialFetch)? loading,
-    TResult? Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult? Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult? Function()? loading,
+    TResult? Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult? Function(String errorMessage, int? errorCode)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool initialFetch)? loading,
-    TResult Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult Function()? loading,
+    TResult Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult Function(String errorMessage, int? errorCode)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,10 +64,6 @@ mixin _$OpeningStockState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $OpeningStockStateCopyWith<OpeningStockState> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -77,8 +71,6 @@ abstract class $OpeningStockStateCopyWith<$Res> {
   factory $OpeningStockStateCopyWith(
           OpeningStockState value, $Res Function(OpeningStockState) then) =
       _$OpeningStockStateCopyWithImpl<$Res, OpeningStockState>;
-  @useResult
-  $Res call({bool initialFetch});
 }
 
 /// @nodoc
@@ -90,30 +82,13 @@ class _$OpeningStockStateCopyWithImpl<$Res, $Val extends OpeningStockState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? initialFetch = null,
-  }) {
-    return _then(_value.copyWith(
-      initialFetch: null == initialFetch
-          ? _value.initialFetch
-          : initialFetch // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$OpeningStockStateLoadingCopyWith<$Res>
-    implements $OpeningStockStateCopyWith<$Res> {
+abstract class _$$OpeningStockStateLoadingCopyWith<$Res> {
   factory _$$OpeningStockStateLoadingCopyWith(_$OpeningStockStateLoading value,
           $Res Function(_$OpeningStockStateLoading) then) =
       __$$OpeningStockStateLoadingCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool initialFetch});
 }
 
 /// @nodoc
@@ -123,90 +98,62 @@ class __$$OpeningStockStateLoadingCopyWithImpl<$Res>
   __$$OpeningStockStateLoadingCopyWithImpl(_$OpeningStockStateLoading _value,
       $Res Function(_$OpeningStockStateLoading) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? initialFetch = null,
-  }) {
-    return _then(_$OpeningStockStateLoading(
-      initialFetch: null == initialFetch
-          ? _value.initialFetch
-          : initialFetch // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$OpeningStockStateLoading implements OpeningStockStateLoading {
-  const _$OpeningStockStateLoading({this.initialFetch = false});
-
-  @override
-  @JsonKey()
-  final bool initialFetch;
+  const _$OpeningStockStateLoading();
 
   @override
   String toString() {
-    return 'OpeningStockState.loading(initialFetch: $initialFetch)';
+    return 'OpeningStockState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OpeningStockStateLoading &&
-            (identical(other.initialFetch, initialFetch) ||
-                other.initialFetch == initialFetch));
+            other is _$OpeningStockStateLoading);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialFetch);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OpeningStockStateLoadingCopyWith<_$OpeningStockStateLoading>
-      get copyWith =>
-          __$$OpeningStockStateLoadingCopyWithImpl<_$OpeningStockStateLoading>(
-              this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool initialFetch) loading,
-    required TResult Function(OpeningStock openingStock, bool initialFetch)
-        loaded,
+    required TResult Function() loading,
     required TResult Function(
-            String errorMessage, int? errorCode, bool initialFetch)
-        error,
+            OpeningStock openingStock, String? status, bool isError)
+        loaded,
+    required TResult Function(String errorMessage, int? errorCode) error,
   }) {
-    return loading(initialFetch);
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool initialFetch)? loading,
-    TResult? Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult? Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult? Function()? loading,
+    TResult? Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult? Function(String errorMessage, int? errorCode)? error,
   }) {
-    return loading?.call(initialFetch);
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool initialFetch)? loading,
-    TResult Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult Function()? loading,
+    TResult Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult Function(String errorMessage, int? errorCode)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(initialFetch);
+      return loading();
     }
     return orElse();
   }
@@ -247,26 +194,16 @@ class _$OpeningStockStateLoading implements OpeningStockStateLoading {
 }
 
 abstract class OpeningStockStateLoading implements OpeningStockState {
-  const factory OpeningStockStateLoading({final bool initialFetch}) =
-      _$OpeningStockStateLoading;
-
-  @override
-  bool get initialFetch;
-  @override
-  @JsonKey(ignore: true)
-  _$$OpeningStockStateLoadingCopyWith<_$OpeningStockStateLoading>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory OpeningStockStateLoading() = _$OpeningStockStateLoading;
 }
 
 /// @nodoc
-abstract class _$$OpeningStockStateLoadedCopyWith<$Res>
-    implements $OpeningStockStateCopyWith<$Res> {
+abstract class _$$OpeningStockStateLoadedCopyWith<$Res> {
   factory _$$OpeningStockStateLoadedCopyWith(_$OpeningStockStateLoaded value,
           $Res Function(_$OpeningStockStateLoaded) then) =
       __$$OpeningStockStateLoadedCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({OpeningStock openingStock, bool initialFetch});
+  $Res call({OpeningStock openingStock, String? status, bool isError});
 
   $OpeningStockCopyWith<$Res> get openingStock;
 }
@@ -283,16 +220,21 @@ class __$$OpeningStockStateLoadedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? openingStock = null,
-    Object? initialFetch = null,
+    Object? status = freezed,
+    Object? isError = null,
   }) {
     return _then(_$OpeningStockStateLoaded(
       openingStock: null == openingStock
           ? _value.openingStock
           : openingStock // ignore: cast_nullable_to_non_nullable
               as OpeningStock,
-      initialFetch: null == initialFetch
-          ? _value.initialFetch
-          : initialFetch // ignore: cast_nullable_to_non_nullable
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -310,17 +252,19 @@ class __$$OpeningStockStateLoadedCopyWithImpl<$Res>
 
 class _$OpeningStockStateLoaded implements OpeningStockStateLoaded {
   const _$OpeningStockStateLoaded(
-      {required this.openingStock, this.initialFetch = false});
+      {required this.openingStock, this.status, this.isError = false});
 
   @override
   final OpeningStock openingStock;
   @override
+  final String? status;
+  @override
   @JsonKey()
-  final bool initialFetch;
+  final bool isError;
 
   @override
   String toString() {
-    return 'OpeningStockState.loaded(openingStock: $openingStock, initialFetch: $initialFetch)';
+    return 'OpeningStockState.loaded(openingStock: $openingStock, status: $status, isError: $isError)';
   }
 
   @override
@@ -330,12 +274,12 @@ class _$OpeningStockStateLoaded implements OpeningStockStateLoaded {
             other is _$OpeningStockStateLoaded &&
             (identical(other.openingStock, openingStock) ||
                 other.openingStock == openingStock) &&
-            (identical(other.initialFetch, initialFetch) ||
-                other.initialFetch == initialFetch));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isError, isError) || other.isError == isError));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, openingStock, initialFetch);
+  int get hashCode => Object.hash(runtimeType, openingStock, status, isError);
 
   @JsonKey(ignore: true)
   @override
@@ -347,38 +291,37 @@ class _$OpeningStockStateLoaded implements OpeningStockStateLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool initialFetch) loading,
-    required TResult Function(OpeningStock openingStock, bool initialFetch)
-        loaded,
+    required TResult Function() loading,
     required TResult Function(
-            String errorMessage, int? errorCode, bool initialFetch)
-        error,
+            OpeningStock openingStock, String? status, bool isError)
+        loaded,
+    required TResult Function(String errorMessage, int? errorCode) error,
   }) {
-    return loaded(openingStock, initialFetch);
+    return loaded(openingStock, status, isError);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool initialFetch)? loading,
-    TResult? Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult? Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult? Function()? loading,
+    TResult? Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult? Function(String errorMessage, int? errorCode)? error,
   }) {
-    return loaded?.call(openingStock, initialFetch);
+    return loaded?.call(openingStock, status, isError);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool initialFetch)? loading,
-    TResult Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult Function()? loading,
+    TResult Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult Function(String errorMessage, int? errorCode)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(openingStock, initialFetch);
+      return loaded(openingStock, status, isError);
     }
     return orElse();
   }
@@ -421,26 +364,24 @@ class _$OpeningStockStateLoaded implements OpeningStockStateLoaded {
 abstract class OpeningStockStateLoaded implements OpeningStockState {
   const factory OpeningStockStateLoaded(
       {required final OpeningStock openingStock,
-      final bool initialFetch}) = _$OpeningStockStateLoaded;
+      final String? status,
+      final bool isError}) = _$OpeningStockStateLoaded;
 
   OpeningStock get openingStock;
-  @override
-  bool get initialFetch;
-  @override
+  String? get status;
+  bool get isError;
   @JsonKey(ignore: true)
   _$$OpeningStockStateLoadedCopyWith<_$OpeningStockStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OpeningStockStateErrorCopyWith<$Res>
-    implements $OpeningStockStateCopyWith<$Res> {
+abstract class _$$OpeningStockStateErrorCopyWith<$Res> {
   factory _$$OpeningStockStateErrorCopyWith(_$OpeningStockStateError value,
           $Res Function(_$OpeningStockStateError) then) =
       __$$OpeningStockStateErrorCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String errorMessage, int? errorCode, bool initialFetch});
+  $Res call({String errorMessage, int? errorCode});
 }
 
 /// @nodoc
@@ -456,7 +397,6 @@ class __$$OpeningStockStateErrorCopyWithImpl<$Res>
   $Res call({
     Object? errorMessage = null,
     Object? errorCode = freezed,
-    Object? initialFetch = null,
   }) {
     return _then(_$OpeningStockStateError(
       errorMessage: null == errorMessage
@@ -467,10 +407,6 @@ class __$$OpeningStockStateErrorCopyWithImpl<$Res>
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      initialFetch: null == initialFetch
-          ? _value.initialFetch
-          : initialFetch // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -478,20 +414,16 @@ class __$$OpeningStockStateErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OpeningStockStateError implements OpeningStockStateError {
-  const _$OpeningStockStateError(
-      {required this.errorMessage, this.errorCode, this.initialFetch = false});
+  const _$OpeningStockStateError({required this.errorMessage, this.errorCode});
 
   @override
   final String errorMessage;
   @override
   final int? errorCode;
-  @override
-  @JsonKey()
-  final bool initialFetch;
 
   @override
   String toString() {
-    return 'OpeningStockState.error(errorMessage: $errorMessage, errorCode: $errorCode, initialFetch: $initialFetch)';
+    return 'OpeningStockState.error(errorMessage: $errorMessage, errorCode: $errorCode)';
   }
 
   @override
@@ -502,14 +434,11 @@ class _$OpeningStockStateError implements OpeningStockStateError {
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.errorCode, errorCode) ||
-                other.errorCode == errorCode) &&
-            (identical(other.initialFetch, initialFetch) ||
-                other.initialFetch == initialFetch));
+                other.errorCode == errorCode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, errorMessage, errorCode, initialFetch);
+  int get hashCode => Object.hash(runtimeType, errorMessage, errorCode);
 
   @JsonKey(ignore: true)
   @override
@@ -521,38 +450,37 @@ class _$OpeningStockStateError implements OpeningStockStateError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool initialFetch) loading,
-    required TResult Function(OpeningStock openingStock, bool initialFetch)
-        loaded,
+    required TResult Function() loading,
     required TResult Function(
-            String errorMessage, int? errorCode, bool initialFetch)
-        error,
+            OpeningStock openingStock, String? status, bool isError)
+        loaded,
+    required TResult Function(String errorMessage, int? errorCode) error,
   }) {
-    return error(errorMessage, errorCode, initialFetch);
+    return error(errorMessage, errorCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool initialFetch)? loading,
-    TResult? Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult? Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult? Function()? loading,
+    TResult? Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult? Function(String errorMessage, int? errorCode)? error,
   }) {
-    return error?.call(errorMessage, errorCode, initialFetch);
+    return error?.call(errorMessage, errorCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool initialFetch)? loading,
-    TResult Function(OpeningStock openingStock, bool initialFetch)? loaded,
-    TResult Function(String errorMessage, int? errorCode, bool initialFetch)?
-        error,
+    TResult Function()? loading,
+    TResult Function(OpeningStock openingStock, String? status, bool isError)?
+        loaded,
+    TResult Function(String errorMessage, int? errorCode)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorMessage, errorCode, initialFetch);
+      return error(errorMessage, errorCode);
     }
     return orElse();
   }
@@ -595,14 +523,10 @@ class _$OpeningStockStateError implements OpeningStockStateError {
 abstract class OpeningStockStateError implements OpeningStockState {
   const factory OpeningStockStateError(
       {required final String errorMessage,
-      final int? errorCode,
-      final bool initialFetch}) = _$OpeningStockStateError;
+      final int? errorCode}) = _$OpeningStockStateError;
 
   String get errorMessage;
   int? get errorCode;
-  @override
-  bool get initialFetch;
-  @override
   @JsonKey(ignore: true)
   _$$OpeningStockStateErrorCopyWith<_$OpeningStockStateError> get copyWith =>
       throw _privateConstructorUsedError;

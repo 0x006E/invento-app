@@ -15,6 +15,7 @@ class ProductCubit extends Cubit<ProductState> {
 
   void fetch() async {
     logger.d("fetch() called");
+    emit(ProductStateLoading());
     var repositoryResponse = await productRepository.getAll();
     repositoryResponse.fold(
       (err) async {
