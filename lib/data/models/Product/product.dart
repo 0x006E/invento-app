@@ -8,7 +8,7 @@ class Product with _$Product {
   const factory Product({
     required String id,
     required String name,
-    int? price,
+    double? price,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>

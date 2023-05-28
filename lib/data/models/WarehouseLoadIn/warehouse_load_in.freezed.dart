@@ -22,11 +22,11 @@ WarehouseLoadIn _$WarehouseLoadInFromJson(Map<String, dynamic> json) {
 mixin _$WarehouseLoadIn {
   String? get id => throw _privateConstructorUsedError;
   String? get loadInId => throw _privateConstructorUsedError;
-  String get warehouseId => throw _privateConstructorUsedError;
+  String? get warehouseId => throw _privateConstructorUsedError;
   String get vehicleNumber => throw _privateConstructorUsedError;
   String get invoiceNumber => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
-  List<Product> get products => throw _privateConstructorUsedError;
+  List<LoadInProduct> get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,11 +43,11 @@ abstract class $WarehouseLoadInCopyWith<$Res> {
   $Res call(
       {String? id,
       String? loadInId,
-      String warehouseId,
+      String? warehouseId,
       String vehicleNumber,
       String invoiceNumber,
       DateTime dateTime,
-      List<Product> products});
+      List<LoadInProduct> products});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$WarehouseLoadInCopyWithImpl<$Res, $Val extends WarehouseLoadIn>
   $Res call({
     Object? id = freezed,
     Object? loadInId = freezed,
-    Object? warehouseId = null,
+    Object? warehouseId = freezed,
     Object? vehicleNumber = null,
     Object? invoiceNumber = null,
     Object? dateTime = null,
@@ -80,10 +80,10 @@ class _$WarehouseLoadInCopyWithImpl<$Res, $Val extends WarehouseLoadIn>
           ? _value.loadInId
           : loadInId // ignore: cast_nullable_to_non_nullable
               as String?,
-      warehouseId: null == warehouseId
+      warehouseId: freezed == warehouseId
           ? _value.warehouseId
           : warehouseId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleNumber: null == vehicleNumber
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ class _$WarehouseLoadInCopyWithImpl<$Res, $Val extends WarehouseLoadIn>
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<LoadInProduct>,
     ) as $Val);
   }
 }
@@ -115,11 +115,11 @@ abstract class _$$_WarehouseLoadInCopyWith<$Res>
   $Res call(
       {String? id,
       String? loadInId,
-      String warehouseId,
+      String? warehouseId,
       String vehicleNumber,
       String invoiceNumber,
       DateTime dateTime,
-      List<Product> products});
+      List<LoadInProduct> products});
 }
 
 /// @nodoc
@@ -135,7 +135,7 @@ class __$$_WarehouseLoadInCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? loadInId = freezed,
-    Object? warehouseId = null,
+    Object? warehouseId = freezed,
     Object? vehicleNumber = null,
     Object? invoiceNumber = null,
     Object? dateTime = null,
@@ -150,10 +150,10 @@ class __$$_WarehouseLoadInCopyWithImpl<$Res>
           ? _value.loadInId
           : loadInId // ignore: cast_nullable_to_non_nullable
               as String?,
-      warehouseId: null == warehouseId
+      warehouseId: freezed == warehouseId
           ? _value.warehouseId
           : warehouseId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleNumber: null == vehicleNumber
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ class __$$_WarehouseLoadInCopyWithImpl<$Res>
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<LoadInProduct>,
     ));
   }
 }
@@ -185,7 +185,7 @@ class _$_WarehouseLoadIn implements _WarehouseLoadIn {
       required this.vehicleNumber,
       required this.invoiceNumber,
       required this.dateTime,
-      required final List<Product> products})
+      required final List<LoadInProduct> products})
       : _products = products;
 
   factory _$_WarehouseLoadIn.fromJson(Map<String, dynamic> json) =>
@@ -196,16 +196,16 @@ class _$_WarehouseLoadIn implements _WarehouseLoadIn {
   @override
   final String? loadInId;
   @override
-  final String warehouseId;
+  final String? warehouseId;
   @override
   final String vehicleNumber;
   @override
   final String invoiceNumber;
   @override
   final DateTime dateTime;
-  final List<Product> _products;
+  final List<LoadInProduct> _products;
   @override
-  List<Product> get products {
+  List<LoadInProduct> get products {
     if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_products);
@@ -265,11 +265,11 @@ abstract class _WarehouseLoadIn implements WarehouseLoadIn {
   const factory _WarehouseLoadIn(
       {final String? id,
       final String? loadInId,
-      required final String warehouseId,
+      required final String? warehouseId,
       required final String vehicleNumber,
       required final String invoiceNumber,
       required final DateTime dateTime,
-      required final List<Product> products}) = _$_WarehouseLoadIn;
+      required final List<LoadInProduct> products}) = _$_WarehouseLoadIn;
 
   factory _WarehouseLoadIn.fromJson(Map<String, dynamic> json) =
       _$_WarehouseLoadIn.fromJson;
@@ -279,7 +279,7 @@ abstract class _WarehouseLoadIn implements WarehouseLoadIn {
   @override
   String? get loadInId;
   @override
-  String get warehouseId;
+  String? get warehouseId;
   @override
   String get vehicleNumber;
   @override
@@ -287,39 +287,41 @@ abstract class _WarehouseLoadIn implements WarehouseLoadIn {
   @override
   DateTime get dateTime;
   @override
-  List<Product> get products;
+  List<LoadInProduct> get products;
   @override
   @JsonKey(ignore: true)
   _$$_WarehouseLoadInCopyWith<_$_WarehouseLoadIn> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Product _$ProductFromJson(Map<String, dynamic> json) {
-  return _Product.fromJson(json);
+LoadInProduct _$LoadInProductFromJson(Map<String, dynamic> json) {
+  return _LoadInProduct.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Product {
+mixin _$LoadInProduct {
   String get productId => throw _privateConstructorUsedError;
   int get quantityFull => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+  $LoadInProductCopyWith<LoadInProduct> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res, Product>;
+abstract class $LoadInProductCopyWith<$Res> {
+  factory $LoadInProductCopyWith(
+          LoadInProduct value, $Res Function(LoadInProduct) then) =
+      _$LoadInProductCopyWithImpl<$Res, LoadInProduct>;
   @useResult
   $Res call({String productId, int quantityFull});
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res, $Val extends Product>
-    implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$LoadInProductCopyWithImpl<$Res, $Val extends LoadInProduct>
+    implements $LoadInProductCopyWith<$Res> {
+  _$LoadInProductCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -346,20 +348,22 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$_LoadInProductCopyWith<$Res>
+    implements $LoadInProductCopyWith<$Res> {
+  factory _$$_LoadInProductCopyWith(
+          _$_LoadInProduct value, $Res Function(_$_LoadInProduct) then) =
+      __$$_LoadInProductCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String productId, int quantityFull});
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$_Product>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+class __$$_LoadInProductCopyWithImpl<$Res>
+    extends _$LoadInProductCopyWithImpl<$Res, _$_LoadInProduct>
+    implements _$$_LoadInProductCopyWith<$Res> {
+  __$$_LoadInProductCopyWithImpl(
+      _$_LoadInProduct _value, $Res Function(_$_LoadInProduct) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -368,7 +372,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? productId = null,
     Object? quantityFull = null,
   }) {
-    return _then(_$_Product(
+    return _then(_$_LoadInProduct(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -383,11 +387,11 @@ class __$$_ProductCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Product implements _Product {
-  const _$_Product({required this.productId, required this.quantityFull});
+class _$_LoadInProduct implements _LoadInProduct {
+  const _$_LoadInProduct({required this.productId, required this.quantityFull});
 
-  factory _$_Product.fromJson(Map<String, dynamic> json) =>
-      _$$_ProductFromJson(json);
+  factory _$_LoadInProduct.fromJson(Map<String, dynamic> json) =>
+      _$$_LoadInProductFromJson(json);
 
   @override
   final String productId;
@@ -396,14 +400,14 @@ class _$_Product implements _Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, quantityFull: $quantityFull)';
+    return 'LoadInProduct(productId: $productId, quantityFull: $quantityFull)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$_LoadInProduct &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.quantityFull, quantityFull) ||
@@ -417,23 +421,24 @@ class _$_Product implements _Product {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$_LoadInProductCopyWith<_$_LoadInProduct> get copyWith =>
+      __$$_LoadInProductCopyWithImpl<_$_LoadInProduct>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductToJson(
+    return _$$_LoadInProductToJson(
       this,
     );
   }
 }
 
-abstract class _Product implements Product {
-  const factory _Product(
+abstract class _LoadInProduct implements LoadInProduct {
+  const factory _LoadInProduct(
       {required final String productId,
-      required final int quantityFull}) = _$_Product;
+      required final int quantityFull}) = _$_LoadInProduct;
 
-  factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
+  factory _LoadInProduct.fromJson(Map<String, dynamic> json) =
+      _$_LoadInProduct.fromJson;
 
   @override
   String get productId;
@@ -441,6 +446,6 @@ abstract class _Product implements Product {
   int get quantityFull;
   @override
   @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  _$$_LoadInProductCopyWith<_$_LoadInProduct> get copyWith =>
       throw _privateConstructorUsedError;
 }

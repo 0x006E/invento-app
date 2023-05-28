@@ -22,7 +22,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 mixin _$Product {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res, Product>;
   @useResult
-  $Res call({String id, String name, int? price});
+  $Res call({String id, String name, double? price});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       __$$_ProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, int? price});
+  $Res call({String id, String name, double? price});
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class __$$_ProductCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -125,7 +125,7 @@ class _$_Product implements _Product {
   @override
   final String name;
   @override
-  final int? price;
+  final double? price;
 
   @override
   String toString() {
@@ -164,7 +164,7 @@ abstract class _Product implements Product {
   const factory _Product(
       {required final String id,
       required final String name,
-      final int? price}) = _$_Product;
+      final double? price}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
@@ -173,7 +173,7 @@ abstract class _Product implements Product {
   @override
   String get name;
   @override
-  int? get price;
+  double? get price;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

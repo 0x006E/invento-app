@@ -13,8 +13,7 @@ class _SaleProvider implements SaleProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/sale';
+    baseUrl ??= 'https://invento.ntsv.eu.org/api/sale';
   }
 
   final Dio _dio;

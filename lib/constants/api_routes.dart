@@ -1,4 +1,4 @@
-const BASE_URL = 'https://invento-server-production-ceee.up.railway.app';
+const BASE_URL = 'https://invento.ntsv.eu.org';
 const OPENING_STOCK_ENDPOINT = '/api/stock/opening';
 const PRODUCT_ENDPOINT = '/api/product';
 const TAKE_STOCK_ENDPOINT = '/api/stock/take';

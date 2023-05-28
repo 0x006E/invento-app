@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:invento/data/models/WarehouseLoadIn/warehouse_load_in.dart';
 
-class LoadInCard extends StatelessWidget {
-  const LoadInCard({
+class ReceiptCard extends StatelessWidget {
+  const ReceiptCard({
     Key? key,
-    required this.vehicleNumber,
-    required this.invoiceNumber,
+    required this.customerName,
+    required this.amount,
+    required this.mode,
     required this.dateTime,
-    required this.products,
+    required this.saleItems,
     this.onDelete,
     this.onEdit,
   }) : super(key: key);
 
-  final String vehicleNumber;
-  final String invoiceNumber;
+  final String customerName;
+  final String mode;
+  final int amount;
   final DateTime dateTime;
-  final List<LoadInProduct> products;
+  final List<String> saleItems;
 
   final void Function()? onDelete;
   final void Function()? onEdit;
@@ -46,12 +47,12 @@ class LoadInCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Vehicle No: ",
+                      "Customer Name",
                       style: TextStyle(fontWeight: FontWeight.w700),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      vehicleNumber,
+                      customerName,
                       style: const TextStyle(color: Colors.grey),
                     ),
                   ],
@@ -87,12 +88,27 @@ class LoadInCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Invoice No: ",
+                  "Mode of Payment: ",
                   style: TextStyle(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  invoiceNumber,
+                  mode,
+                  style: const TextStyle(color: Colors.grey),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Amount ",
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  amount.toString(),
                   style: const TextStyle(color: Colors.grey),
                 ),
               ],
@@ -114,7 +130,7 @@ class LoadInCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              "${products.length} product(s) was changed in this item. Click item to edit",
+              "${saleItems.length} sale(s) was included in this item. Click item to edit",
             )
           ],
         ),

@@ -176,11 +176,11 @@ class OpeningStockCubit extends Cubit<OpeningStockState> {
     });
   }
 
-  @override
-  void onChange(Change<OpeningStockState> change) {
-    super.onChange(change);
-    logger.d(change.toString());
-    logger.d(change.currentState.toString());
-    logger.d(change.nextState.toString());
-  }
+// @override
+// void onChange(Change<OpeningStockState> change) {
+//   super.onChange(change);
+//   logger.d(change.toString());
+//   logger.d(change.currentState.toString());
+//   logger.d(change.nextState.toString());
+// }
 }

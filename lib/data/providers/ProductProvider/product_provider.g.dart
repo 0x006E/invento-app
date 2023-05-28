@@ -13,8 +13,7 @@ class _ProductProvider implements ProductProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/product';
+    baseUrl ??= 'https://invento.ntsv.eu.org/api/product';
   }
 
   final Dio _dio;

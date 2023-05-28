@@ -13,8 +13,7 @@ class _OpeningStockProvider implements OpeningStockProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/stock/opening';
+    baseUrl ??= 'https://invento.ntsv.eu.org/api/stock/opening';
   }
 
   final Dio _dio;

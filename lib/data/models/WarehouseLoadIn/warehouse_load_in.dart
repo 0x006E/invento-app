@@ -9,11 +9,11 @@ class WarehouseLoadIn with _$WarehouseLoadIn {
   const factory WarehouseLoadIn({
     String? id,
     String? loadInId,
-    required String warehouseId,
+    required String? warehouseId,
     required String vehicleNumber,
     required String invoiceNumber,
     required DateTime dateTime,
-    required List<Product> products,
+    required List<LoadInProduct> products,
   }) = _WarehouseLoadIn;
 
   factory WarehouseLoadIn.fromJson(Map<String, dynamic> json) =>
@@ -21,12 +21,12 @@ class WarehouseLoadIn with _$WarehouseLoadIn {
 }
 
 @freezed
-class Product with _$Product {
-  const factory Product({
+class LoadInProduct with _$LoadInProduct {
+  const factory LoadInProduct({
     required String productId,
     required int quantityFull,
-  }) = _Product;
+  }) = _LoadInProduct;
 
-  factory Product.fromJson(Map<String, dynamic> json) =>
-      _$ProductFromJson(json);
+  factory LoadInProduct.fromJson(Map<String, dynamic> json) =>
+      _$LoadInProductFromJson(json);
 }

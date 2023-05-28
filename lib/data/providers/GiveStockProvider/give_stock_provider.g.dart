@@ -13,8 +13,7 @@ class _GiveStockProvider implements GiveStockProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/stock/give';
+    baseUrl ??= 'https://invento.ntsv.eu.org/api/stock/give';
   }
 
   final Dio _dio;

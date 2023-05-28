@@ -10,12 +10,12 @@ _$_WarehouseLoadIn _$$_WarehouseLoadInFromJson(Map<String, dynamic> json) =>
     _$_WarehouseLoadIn(
       id: json['id'] as String?,
       loadInId: json['loadInId'] as String?,
-      warehouseId: json['warehouseId'] as String,
+      warehouseId: json['warehouseId'] as String?,
       vehicleNumber: json['vehicleNumber'] as String,
       invoiceNumber: json['invoiceNumber'] as String,
       dateTime: DateTime.parse(json['dateTime'] as String),
       products: (json['products'] as List<dynamic>)
-          .map((e) => Product.fromJson(e as Map<String, dynamic>))
+          .map((e) => LoadInProduct.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$_WarehouseLoadInToJson(_$_WarehouseLoadIn instance) {
 
   writeNotNull('id', instance.id);
   writeNotNull('loadInId', instance.loadInId);
-  val['warehouseId'] = instance.warehouseId;
+  writeNotNull('warehouseId', instance.warehouseId);
   val['vehicleNumber'] = instance.vehicleNumber;
   val['invoiceNumber'] = instance.invoiceNumber;
   val['dateTime'] = instance.dateTime.toIso8601String();
@@ -38,12 +38,13 @@ Map<String, dynamic> _$$_WarehouseLoadInToJson(_$_WarehouseLoadIn instance) {
   return val;
 }
 
-_$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
+_$_LoadInProduct _$$_LoadInProductFromJson(Map<String, dynamic> json) =>
+    _$_LoadInProduct(
       productId: json['productId'] as String,
       quantityFull: json['quantityFull'] as int,
     );
 
-Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
+Map<String, dynamic> _$$_LoadInProductToJson(_$_LoadInProduct instance) =>
     <String, dynamic>{
       'productId': instance.productId,
       'quantityFull': instance.quantityFull,

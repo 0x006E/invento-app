@@ -13,8 +13,7 @@ class _WarehouseLoadInProvider implements WarehouseLoadInProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??=
-        'https://invento-server-production-ceee.up.railway.app/api/warehouse/load-in';
+    baseUrl ??= 'https://invento.ntsv.eu.org/api/warehouse/load-in';
   }
 
   final Dio _dio;
