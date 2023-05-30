@@ -11,7 +11,7 @@ part 'opening_stock_state.dart';
 
 class OpeningStockCubit extends Cubit<OpeningStockState> {
   final OpeningStockRepository openingStockRepository;
-  final String partyId = "275089a1-efc0-4f38-be1a-62331c0b7edd";
+  final String partyId = "51d5bb6c-34b9-4f43-917c-6309456521f4";
 
   OpeningStockCubit({required this.openingStockRepository})
       : super(const OpeningStockState.loading());

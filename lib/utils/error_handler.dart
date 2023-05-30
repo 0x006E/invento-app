@@ -11,9 +11,15 @@ Future<Either<DataSourceError, T>> handleError<T>(
     return Right(response);
   } on DioError catch (err) {
     if (err.type == DioErrorType.badResponse) {
-      var e =
-          DataSourceError.fromJson(err.response?.data as Map<String, dynamic>);
-      return Left(e);
+      try {
+        var e = DataSourceError.fromJson(
+            err.response?.data as Map<String, dynamic>);
+        return Left(e);
+      } on DioError catch (e) {
+        return Left(DataSourceError(
+            statusCode: e.response?.statusCode ?? 500,
+            message: e.message ?? 'Something went wrong'));
+      }
     } else if (err.isNoConnectionError) {
       return Left(DataSourceError(message: "No internet"));
     } else {

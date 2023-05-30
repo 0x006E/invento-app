@@ -14,17 +14,63 @@ import 'package:lottie/lottie.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class LoadInForm extends StatelessWidget {
-  LoadInForm({Key? key}) : super(key: key);
+  final bool isEdit;
+  late final FormGroup form;
+  final String? loadInId;
+  final DateTime? dateTime;
 
-  final isEdit = false;
+  LoadInForm({
+    super.key,
+    this.isEdit = false,
+    this.loadInId,
+    String? vehicleNumber,
+    String? invoiceNumber,
+    List<LoadInProduct>? products,
+    this.dateTime,
+  }) {
+    final productArray = products != null
+        ? products
+            .map((product) => fb.group({
+                  'productId': [product.productId, Validators.required],
+                  'quantity': [
+                    product.quantity,
+                    Validators.required,
+                    Validators.min(1)
+                  ],
+                }))
+            .toList()
+        : [];
+    form = fb.group({
+      'products': fb.array([...productArray]),
+      'vehicleNumber': [vehicleNumber, Validators.required],
+      'invoiceNumber': [invoiceNumber, Validators.required],
+    }, [
+      Validators.required
+    ]);
+  }
 
-  final form = fb.group({
-    'products': fb.array([]),
-    'vehicleNumber': ['', Validators.required],
-    'invoiceNumber': ['', Validators.required],
-  }, [
-    Validators.required
-  ]);
+  void handleSubmit(Map<String, dynamic> values, BuildContext context) {
+    final String invoiceNumber = values['invoiceNumber'] as String;
+    final String vehicleNumber = values['vehicleNumber'] as String;
+    final List<LoadInProduct> products = (values['products'] as List<dynamic>)
+        .map((e) => LoadInProduct(
+            productId: e['productId'].toString(),
+            quantity: e['quantity'].toDouble()))
+        .toList();
+    if (isEdit) {
+      context.read<LoadInFormCubit>().updateItem(
+          loadInId: loadInId ?? '',
+          dateTime: dateTime ?? DateTime.now(),
+          invoiceNumber: invoiceNumber,
+          vehicleNumber: vehicleNumber,
+          products: products);
+    } else {
+      context.read<LoadInFormCubit>().addItem(
+          invoiceNumber: invoiceNumber,
+          vehicleNumber: vehicleNumber,
+          products: products);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -226,20 +272,6 @@ class LoadInForm extends StatelessWidget {
     );
   }
 
-  void handleSubmit(Map<String, dynamic> values, BuildContext context) {
-    final String invoiceNumber = values['invoiceNumber'] as String;
-    final String vehicleNumber = values['vehicleNumber'] as String;
-    final List<LoadInProduct> products = (values['products'] as List<dynamic>)
-        .map((e) => LoadInProduct(
-            productId: e['productId'].toString(),
-            quantityFull: e['quantityFull'] as int))
-        .toList();
-    context.read<LoadInFormCubit>().addItem(
-        invoiceNumber: invoiceNumber,
-        vehicleNumber: vehicleNumber,
-        products: products);
-  }
-
   List<Step> getSteps(int currentStep) {
     var logicalScreenSize = window.physicalSize / window.devicePixelRatio;
     var logicalHeight = logicalScreenSize.height;
@@ -253,9 +285,7 @@ class LoadInForm extends StatelessWidget {
               const Text("Select Products"),
               Builder(builder: (context) {
                 return ElevatedButton(
-                    onPressed: isEdit
-                        ? null
-                        : () => context.read<ProductCubit>().fetch(),
+                    onPressed: () => context.read<ProductCubit>().fetch(),
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
                       minimumSize: Size.zero, // Set this
@@ -292,8 +322,8 @@ class LoadInForm extends StatelessWidget {
                                       product.id,
                                       Validators.required
                                     ],
-                                    'quantityFull': [
-                                      0,
+                                    'quantity': [
+                                      0.00,
                                       Validators.required,
                                       Validators.min(1)
                                     ],
@@ -382,7 +412,7 @@ class LoadInForm extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Full: ',
+                                              'Quantity: ',
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 14,
@@ -399,7 +429,7 @@ class LoadInForm extends StatelessWidget {
                                                   ValidationMessage.min: (error) =>
                                                       'Minimum of value 1 is required',
                                                 },
-                                                formControlName: 'quantityFull',
+                                                formControlName: 'quantity',
                                                 keyboardType:
                                                     TextInputType.number,
                                               ),

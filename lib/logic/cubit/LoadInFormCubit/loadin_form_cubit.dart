@@ -37,27 +37,30 @@ class LoadInFormCubit extends Cubit<LoadInFormState> {
         error: (message, code) => setStatus(Status.error, message));
   }
 
-  void updateItem(Map<String, dynamic> formValue) async {
-    // final String productId = formValue['productId'];
-    // final int quantityFull = formValue['quantityFull'];
-    // final int quantityEmpty = formValue['quantityEmpty'];
-    // final int quantityDefective = formValue['quantityDefective'];
+  void updateItem({
+    required String loadInId,
+    required String invoiceNumber,
+    required String vehicleNumber,
+    required List<LoadInProduct> products,
+    required DateTime dateTime,
+  }) async {
     setStatus(Status.loading, "");
-    // await loadInCubit.updateItem(
-    //     productId: productId,
-    //     quantityFull: quantityFull,
-    //     quantityEmpty: quantityEmpty,
-    //     quantityDefective: quantityDefective);
-    // loadInCubit.state.when(
-    //     loading: () {},
-    //     loaded: (_, status, isError) {
-    //       if (!isError) {
-    //         setStatus(Status.success, "Operation successful");
-    //       } else {
-    //         setStatus(Status.error, status!);
-    //       }
-    //     },
-    //     error: (message, code) => setStatus(Status.error, message));
+    await loadInCubit.updateItem(
+        loadInId: loadInId,
+        products: products,
+        invoiceNumber: invoiceNumber,
+        vehicleNumber: vehicleNumber,
+        dateTime: dateTime);
+    loadInCubit.state.when(
+        loading: () {},
+        loaded: (_, status, isError) {
+          if (!isError) {
+            setStatus(Status.success, "Operation successful");
+          } else {
+            setStatus(Status.error, status!);
+          }
+        },
+        error: (message, code) => setStatus(Status.error, message));
   }
 
   @override

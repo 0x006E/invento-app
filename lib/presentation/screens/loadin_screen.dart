@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:invento/data/models/WarehouseLoadIn/warehouse_load_in.dart';
 import 'package:invento/logic/cubit/LoadInCubit/load_in_cubit.dart';
 import 'package:invento/logic/cubit/LoadInFormCubit/loadin_form_cubit.dart';
 import 'package:invento/logic/cubit/ProductCubit/product_cubit.dart';
@@ -88,8 +89,19 @@ class _LoadInScreenState extends State<LoadInScreen> {
                                 itemBuilder:
                                     (BuildContext context, int index) =>
                                         LoadInCard(
-                                  onDelete: () => {},
-                                  onEdit: () {},
+                                  onEdit: () {
+                                    openLoadInForm(
+                                      context,
+                                      isEdit: true,
+                                      loadInId: loadIns[index].id,
+                                      vehicleNumber:
+                                          loadIns[index].vehicleNumber,
+                                      invoiceNumber:
+                                          loadIns[index].invoiceNumber,
+                                      products: loadIns[index].products,
+                                      dateTime: loadIns[index].dateTime,
+                                    );
+                                  },
                                   vehicleNumber: loadIns[index].vehicleNumber,
                                   invoiceNumber: loadIns[index].invoiceNumber,
                                   dateTime: loadIns[index].dateTime,
@@ -114,25 +126,37 @@ class _LoadInScreenState extends State<LoadInScreen> {
     );
   }
 
-  void openLoadInForm(BuildContext context,
-      {bool isEdit = false,
-      String? productId,
-      int? quantityFull,
-      int? quantityEmpty,
-      int? quantityDefective}) {
+  void openLoadInForm(
+    BuildContext context, {
+    bool isEdit = false,
+    String? loadInId,
+    String? vehicleNumber,
+    String? invoiceNumber,
+    List<LoadInProduct>? products,
+    DateTime? dateTime,
+  }) {
     return openModalBottomSheet(
-        MultiBlocProvider(providers: [
-          BlocProvider.value(
-            value: BlocProvider.of<ProductCubit>(context),
-          ),
-          BlocProvider.value(
-            value: BlocProvider.of<LoadInCubit>(context),
-          ),
-          BlocProvider(create: (context) => GenericFormStepperCubit()),
-          BlocProvider(
-              create: (context) => LoadInFormCubit(
-                  loadInCubit: BlocProvider.of<LoadInCubit>(context)))
-        ], child: LoadInForm()),
+        MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: BlocProvider.of<ProductCubit>(context),
+              ),
+              BlocProvider.value(
+                value: BlocProvider.of<LoadInCubit>(context),
+              ),
+              BlocProvider(create: (context) => GenericFormStepperCubit()),
+              BlocProvider(
+                  create: (context) => LoadInFormCubit(
+                      loadInCubit: BlocProvider.of<LoadInCubit>(context)))
+            ],
+            child: LoadInForm(
+              isEdit: isEdit,
+              loadInId: loadInId,
+              vehicleNumber: vehicleNumber,
+              invoiceNumber: invoiceNumber,
+              products: products,
+              dateTime: dateTime,
+            )),
         context);
   }
 }

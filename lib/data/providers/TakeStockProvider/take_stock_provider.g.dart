@@ -13,7 +13,7 @@ class _TakeStockProvider implements TakeStockProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://invento.ntsv.eu.org/api/stock/take';
+    baseUrl ??= 'https://web-0x006e.cloud.okteto.net/api/stock/take';
   }
 
   final Dio _dio;

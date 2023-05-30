@@ -13,7 +13,7 @@ class _OpeningStockProvider implements OpeningStockProvider {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://invento.ntsv.eu.org/api/stock/opening';
+    baseUrl ??= 'https://web-0x006e.cloud.okteto.net/api/stock/opening';
   }
 
   final Dio _dio;

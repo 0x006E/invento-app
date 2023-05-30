@@ -11,7 +11,7 @@ part 'load_in_state.dart';
 
 class LoadInCubit extends Cubit<LoadInState> {
   final WarehouseLoadInRepository loadInRepository;
-  final warehouseId = 'cb3a954d-5e86-4c8c-9798-d82699eb86a2';
+  final warehouseId = '51d5bb6c-34b9-4f43-917c-6309456521f4';
 
   LoadInCubit({required this.loadInRepository})
       : super(const LoadInState.loading());
@@ -66,57 +66,42 @@ class LoadInCubit extends Cubit<LoadInState> {
     });
   }
 
-  // Future<void> updateItem({
-  //   required String productId,
-  //   required int quantityFull,
-  //   required int quantityEmpty,
-  //   required int quantityDefective,
-  // }) async {
-  //   var item = Item(
-  //     productId: productId,
-  //     quantityDefective: quantityDefective,
-  //     quantityEmpty: quantityEmpty,
-  //     quantityFull: quantityFull,
-  //   );
-  //   await state.maybeWhen(loaded: (loadIn, status, isError) async {
-  //     Either<DataSourceError, LoadIn> response;
-  //     var currentItems = [...loadIn.items];
-  //     try {
-  //       var index = currentItems
-  //           .indexWhere((element) => element.productId == productId);
-  //       currentItems[index] = item;
-  //       logger.d("Current Items", currentItems);
-  //       response = await loadInRepository.update(
-  //         LoadIn(
-  //             loadInId: loadIn.id,
-  //             items: [...currentItems, item]),
-  //       );
-  //       response.fold((err) {
-  //         emit(
-  //           LoadInState.loaded(
-  //               loadIn: loadIn,
-  //               status: err.message,
-  //               isError: true),
-  //         );
-  //       }, (response) {
-  //         emit(
-  //           LoadInState.loaded(
-  //               loadIn: response, status: "Item updated"),
-  //         );
-  //       });
-  //     } on StateError catch (_) {
-  //       emit(
-  //         LoadInState.loaded(
-  //             loadIn: loadIn,
-  //             status: "Cannot find product with id",
-  //             isError: true),
-  //       );
-  //     }
-  //   }, orElse: () {
-  //     logger.e("Recall fetch, $state");
-  //     fetch();
-  //   });
-  // }
+  Future<void> updateItem({
+    required String loadInId,
+    required List<LoadInProduct> products,
+    required String vehicleNumber,
+    required String invoiceNumber,
+    required DateTime dateTime,
+  }) async {
+    await state.maybeWhen(loaded: (loadIn, status, isError) async {
+      Either<DataSourceError, WarehouseLoadIn> response;
+      response = await loadInRepository.update(
+        WarehouseLoadIn(
+            warehouseId: null,
+            loadInId: loadInId,
+            vehicleNumber: vehicleNumber,
+            invoiceNumber: invoiceNumber,
+            dateTime: dateTime,
+            products: products),
+      );
+      response.fold((err) {
+        emit(
+          LoadInState.loaded(
+              status: err.message, isError: true, loadIns: loadIn),
+        );
+      }, (response) {
+        var currentItems = [...loadIn];
+        var index = currentItems.indexWhere((item) => item.id == loadInId);
+        currentItems[index] = response;
+        emit(
+          LoadInState.loaded(loadIns: currentItems, status: "Item updated"),
+        );
+      });
+    }, orElse: () {
+      logger.e("Recall fetch, $state");
+      fetch();
+    });
+  }
 
   // Future<void> deleteItem({
   //   required String productId,
