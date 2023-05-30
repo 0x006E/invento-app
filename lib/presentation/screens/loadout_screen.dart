@@ -7,8 +7,8 @@ import 'package:invento/logic/cubit/LoadOutFormCubit/loadout_form_cubit.dart';
 import 'package:invento/logic/cubit/ProductCubit/product_cubit.dart';
 import 'package:invento/logic/cubit/generic_form_stepper_cubit.dart';
 import 'package:invento/presentation/components/error_info.dart';
-import 'package:invento/presentation/components/loadOut_card.dart';
-import 'package:invento/presentation/components/loadOut_form.dart';
+import 'package:invento/presentation/components/loadout_card.dart';
+import 'package:invento/presentation/components/loadout_form.dart';
 import 'package:invento/presentation/components/modal.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
