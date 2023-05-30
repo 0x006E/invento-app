@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:invento/utils/datetime_serializer.dart';
 
 part 'warehouse_load_in.freezed.dart';
 part 'warehouse_load_in.g.dart';
@@ -12,7 +13,7 @@ class WarehouseLoadIn with _$WarehouseLoadIn {
     required String? warehouseId,
     required String vehicleNumber,
     required String invoiceNumber,
-    required DateTime dateTime,
+    @DateTimeSerializer() required DateTime dateTime,
     required List<LoadInProduct> products,
   }) = _WarehouseLoadIn;
 

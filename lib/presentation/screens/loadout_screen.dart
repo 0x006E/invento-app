@@ -23,6 +23,7 @@ class _LoadOutScreenState extends State<LoadOutScreen>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),

@@ -25,6 +25,7 @@ mixin _$WarehouseLoadIn {
   String? get warehouseId => throw _privateConstructorUsedError;
   String get vehicleNumber => throw _privateConstructorUsedError;
   String get invoiceNumber => throw _privateConstructorUsedError;
+  @DateTimeSerializer()
   DateTime get dateTime => throw _privateConstructorUsedError;
   List<LoadInProduct> get products => throw _privateConstructorUsedError;
 
@@ -46,7 +47,7 @@ abstract class $WarehouseLoadInCopyWith<$Res> {
       String? warehouseId,
       String vehicleNumber,
       String invoiceNumber,
-      DateTime dateTime,
+      @DateTimeSerializer() DateTime dateTime,
       List<LoadInProduct> products});
 }
 
@@ -118,7 +119,7 @@ abstract class _$$_WarehouseLoadInCopyWith<$Res>
       String? warehouseId,
       String vehicleNumber,
       String invoiceNumber,
-      DateTime dateTime,
+      @DateTimeSerializer() DateTime dateTime,
       List<LoadInProduct> products});
 }
 
@@ -184,7 +185,7 @@ class _$_WarehouseLoadIn implements _WarehouseLoadIn {
       required this.warehouseId,
       required this.vehicleNumber,
       required this.invoiceNumber,
-      required this.dateTime,
+      @DateTimeSerializer() required this.dateTime,
       required final List<LoadInProduct> products})
       : _products = products;
 
@@ -202,6 +203,7 @@ class _$_WarehouseLoadIn implements _WarehouseLoadIn {
   @override
   final String invoiceNumber;
   @override
+  @DateTimeSerializer()
   final DateTime dateTime;
   final List<LoadInProduct> _products;
   @override
@@ -268,7 +270,7 @@ abstract class _WarehouseLoadIn implements WarehouseLoadIn {
       required final String? warehouseId,
       required final String vehicleNumber,
       required final String invoiceNumber,
-      required final DateTime dateTime,
+      @DateTimeSerializer() required final DateTime dateTime,
       required final List<LoadInProduct> products}) = _$_WarehouseLoadIn;
 
   factory _WarehouseLoadIn.fromJson(Map<String, dynamic> json) =
@@ -285,6 +287,7 @@ abstract class _WarehouseLoadIn implements WarehouseLoadIn {
   @override
   String get invoiceNumber;
   @override
+  @DateTimeSerializer()
   DateTime get dateTime;
   @override
   List<LoadInProduct> get products;

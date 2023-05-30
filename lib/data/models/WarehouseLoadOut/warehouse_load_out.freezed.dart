@@ -25,6 +25,7 @@ mixin _$WarehouseLoadOut {
   String? get warehouseId => throw _privateConstructorUsedError;
   String get vehicleNumber => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
+  @DateTimeSerializer()
   DateTime get dateTime => throw _privateConstructorUsedError;
   List<LoadOutProduct> get products => throw _privateConstructorUsedError;
   String get ervnumber => throw _privateConstructorUsedError;
@@ -47,7 +48,7 @@ abstract class $WarehouseLoadOutCopyWith<$Res> {
       String? warehouseId,
       String vehicleNumber,
       String? imageUrl,
-      DateTime dateTime,
+      @DateTimeSerializer() DateTime dateTime,
       List<LoadOutProduct> products,
       String ervnumber});
 }
@@ -125,7 +126,7 @@ abstract class _$$_WarehouseLoadOutCopyWith<$Res>
       String? warehouseId,
       String vehicleNumber,
       String? imageUrl,
-      DateTime dateTime,
+      @DateTimeSerializer() DateTime dateTime,
       List<LoadOutProduct> products,
       String ervnumber});
 }
@@ -197,7 +198,7 @@ class _$_WarehouseLoadOut implements _WarehouseLoadOut {
       this.warehouseId,
       required this.vehicleNumber,
       this.imageUrl,
-      required this.dateTime,
+      @DateTimeSerializer() required this.dateTime,
       required final List<LoadOutProduct> products,
       required this.ervnumber})
       : _products = products;
@@ -216,6 +217,7 @@ class _$_WarehouseLoadOut implements _WarehouseLoadOut {
   @override
   final String? imageUrl;
   @override
+  @DateTimeSerializer()
   final DateTime dateTime;
   final List<LoadOutProduct> _products;
   @override
@@ -288,7 +290,7 @@ abstract class _WarehouseLoadOut implements WarehouseLoadOut {
       final String? warehouseId,
       required final String vehicleNumber,
       final String? imageUrl,
-      required final DateTime dateTime,
+      @DateTimeSerializer() required final DateTime dateTime,
       required final List<LoadOutProduct> products,
       required final String ervnumber}) = _$_WarehouseLoadOut;
 
@@ -306,6 +308,7 @@ abstract class _WarehouseLoadOut implements WarehouseLoadOut {
   @override
   String? get imageUrl;
   @override
+  @DateTimeSerializer()
   DateTime get dateTime;
   @override
   List<LoadOutProduct> get products;

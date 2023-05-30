@@ -13,7 +13,7 @@ _$_WarehouseLoadOut _$$_WarehouseLoadOutFromJson(Map<String, dynamic> json) =>
       warehouseId: json['warehouseId'] as String?,
       vehicleNumber: json['vehicleNumber'] as String,
       imageUrl: json['imageUrl'] as String?,
-      dateTime: DateTime.parse(json['dateTime'] as String),
+      dateTime: const DateTimeSerializer().fromJson(json['dateTime'] as String),
       products: (json['products'] as List<dynamic>)
           .map((e) => LoadOutProduct.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -34,7 +34,7 @@ Map<String, dynamic> _$$_WarehouseLoadOutToJson(_$_WarehouseLoadOut instance) {
   writeNotNull('warehouseId', instance.warehouseId);
   val['vehicleNumber'] = instance.vehicleNumber;
   writeNotNull('imageUrl', instance.imageUrl);
-  val['dateTime'] = instance.dateTime.toIso8601String();
+  val['dateTime'] = const DateTimeSerializer().toJson(instance.dateTime);
   val['products'] = instance.products.map((e) => e.toJson()).toList();
   val['ervnumber'] = instance.ervnumber;
   return val;
