@@ -68,16 +68,18 @@ class LoadInCard extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    IconButton(
-                      onPressed: onDelete,
-                      padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(),
-                      icon: const Icon(
-                        Icons.delete,
-                        size: 18,
-                        color: Colors.redAccent,
+                    if (onDelete != null) ...[
+                      IconButton(
+                        onPressed: onDelete,
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        icon: const Icon(
+                          Icons.delete,
+                          size: 18,
+                          color: Colors.redAccent,
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
               ],
