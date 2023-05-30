@@ -19,7 +19,8 @@ class LoadInScreen extends StatefulWidget {
   State<LoadInScreen> createState() => _LoadInScreenState();
 }
 
-class _LoadInScreenState extends State<LoadInScreen> {
+class _LoadInScreenState extends State<LoadInScreen>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,4 +160,7 @@ class _LoadInScreenState extends State<LoadInScreen> {
             )),
         context);
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

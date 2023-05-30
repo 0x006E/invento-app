@@ -41,7 +41,7 @@ Map<String, dynamic> _$$_WarehouseLoadInToJson(_$_WarehouseLoadIn instance) {
 _$_LoadInProduct _$$_LoadInProductFromJson(Map<String, dynamic> json) =>
     _$_LoadInProduct(
       productId: json['productId'] as String,
-      quantity: (json['quantity'] as num).toDouble(),
+      quantity: json['quantity'] as int,
     );
 
 Map<String, dynamic> _$$_LoadInProductToJson(_$_LoadInProduct instance) =>

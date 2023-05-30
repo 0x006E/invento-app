@@ -24,7 +24,7 @@ class WarehouseLoadIn with _$WarehouseLoadIn {
 class LoadInProduct with _$LoadInProduct {
   const factory LoadInProduct({
     required String productId,
-    required double quantity,
+    required int quantity,
   }) = _LoadInProduct;
 
   factory LoadInProduct.fromJson(Map<String, dynamic> json) =>

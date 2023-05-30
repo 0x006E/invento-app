@@ -13,7 +13,7 @@ class WarehouseLoadOut with _$WarehouseLoadOut {
     required String vehicleNumber,
     String? imageUrl,
     required DateTime dateTime,
-    required List<Product> products,
+    required List<LoadOutProduct> products,
     required String ervnumber,
   }) = _WarehouseLoadOut;
 
@@ -22,12 +22,12 @@ class WarehouseLoadOut with _$WarehouseLoadOut {
 }
 
 @freezed
-class Product with _$Product {
-  const factory Product({
+class LoadOutProduct with _$LoadOutProduct {
+  const factory LoadOutProduct({
     required String productId,
     required int quantity,
-  }) = _Product;
+  }) = _LoadOutProduct;
 
-  factory Product.fromJson(Map<String, dynamic> json) =>
-      _$ProductFromJson(json);
+  factory LoadOutProduct.fromJson(Map<String, dynamic> json) =>
+      _$LoadOutProductFromJson(json);
 }

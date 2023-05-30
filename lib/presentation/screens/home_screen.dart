@@ -3,11 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:invento/data/providers/OpeningStockProvider/opening_stock_provider.dart';
 import 'package:invento/data/providers/ProductProvider/product_provider.dart';
 import 'package:invento/data/providers/WarehouseLoadInProvider/warehouse_load_in_provider.dart';
+import 'package:invento/data/providers/WarehouseLoadOutProvider/warehouse_load_out_provider.dart';
 import 'package:invento/data/repositories/opening_stock_repository.dart';
 import 'package:invento/data/repositories/product_repository.dart';
 import 'package:invento/data/repositories/warehouse_load_in_repository.dart';
+import 'package:invento/data/repositories/warehouse_load_out_repository.dart';
 import 'package:invento/injection.dart';
 import 'package:invento/logic/cubit/LoadInCubit/load_in_cubit.dart';
+import 'package:invento/logic/cubit/LoadOutCubit/loadout_cubit.dart';
 import 'package:invento/logic/cubit/OpeningStockCubit/opening_stock_cubit.dart';
 import 'package:invento/logic/cubit/ProductCubit/product_cubit.dart';
 import 'package:invento/presentation/components/appbar.dart';
@@ -39,6 +42,10 @@ class _HomePageState extends State<HomePage> {
         RepositoryProvider(
             create: (context) => WarehouseLoadInRepository(
                   remoteDataSource: getIt.get<WarehouseLoadInProvider>(),
+                )),
+        RepositoryProvider(
+            create: (context) => WarehouseLoadOutRepository(
+                  remoteDataSource: getIt.get<WarehouseLoadOutProvider>(),
                 )),
         RepositoryProvider(
           create: (context) => ProductRepository(
@@ -79,7 +86,14 @@ class _HomePageState extends State<HomePage> {
                       ..fetch(),
                     child: LoadInScreen(),
                   ),
-                  LoadOutScreen(),
+                  BlocProvider(
+                    create: (context) => LoadOutCubit(
+                        loadOutRepository:
+                            RepositoryProvider.of<WarehouseLoadOutRepository>(
+                                context))
+                      ..fetch(),
+                    child: LoadOutScreen(),
+                  ),
                   ReceiptScreen(),
                   Center(child: Text('Content of Tab Seven')),
                 ],

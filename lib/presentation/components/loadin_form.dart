@@ -55,7 +55,7 @@ class LoadInForm extends StatelessWidget {
     final List<LoadInProduct> products = (values['products'] as List<dynamic>)
         .map((e) => LoadInProduct(
             productId: e['productId'].toString(),
-            quantity: e['quantity'].toDouble()))
+            quantity: e['quantity'] as int))
         .toList();
     if (isEdit) {
       context.read<LoadInFormCubit>().updateItem(
@@ -323,7 +323,7 @@ class LoadInForm extends StatelessWidget {
                                       Validators.required
                                     ],
                                     'quantity': [
-                                      0.00,
+                                      0,
                                       Validators.required,
                                       Validators.min(1)
                                     ],

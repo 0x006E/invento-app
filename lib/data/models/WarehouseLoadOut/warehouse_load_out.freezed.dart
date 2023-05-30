@@ -26,7 +26,7 @@ mixin _$WarehouseLoadOut {
   String get vehicleNumber => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
-  List<Product> get products => throw _privateConstructorUsedError;
+  List<LoadOutProduct> get products => throw _privateConstructorUsedError;
   String get ervnumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $WarehouseLoadOutCopyWith<$Res> {
       String vehicleNumber,
       String? imageUrl,
       DateTime dateTime,
-      List<Product> products,
+      List<LoadOutProduct> products,
       String ervnumber});
 }
 
@@ -102,7 +102,7 @@ class _$WarehouseLoadOutCopyWithImpl<$Res, $Val extends WarehouseLoadOut>
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<LoadOutProduct>,
       ervnumber: null == ervnumber
           ? _value.ervnumber
           : ervnumber // ignore: cast_nullable_to_non_nullable
@@ -126,7 +126,7 @@ abstract class _$$_WarehouseLoadOutCopyWith<$Res>
       String vehicleNumber,
       String? imageUrl,
       DateTime dateTime,
-      List<Product> products,
+      List<LoadOutProduct> products,
       String ervnumber});
 }
 
@@ -178,7 +178,7 @@ class __$$_WarehouseLoadOutCopyWithImpl<$Res>
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<LoadOutProduct>,
       ervnumber: null == ervnumber
           ? _value.ervnumber
           : ervnumber // ignore: cast_nullable_to_non_nullable
@@ -198,7 +198,7 @@ class _$_WarehouseLoadOut implements _WarehouseLoadOut {
       required this.vehicleNumber,
       this.imageUrl,
       required this.dateTime,
-      required final List<Product> products,
+      required final List<LoadOutProduct> products,
       required this.ervnumber})
       : _products = products;
 
@@ -217,9 +217,9 @@ class _$_WarehouseLoadOut implements _WarehouseLoadOut {
   final String? imageUrl;
   @override
   final DateTime dateTime;
-  final List<Product> _products;
+  final List<LoadOutProduct> _products;
   @override
-  List<Product> get products {
+  List<LoadOutProduct> get products {
     if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_products);
@@ -289,7 +289,7 @@ abstract class _WarehouseLoadOut implements WarehouseLoadOut {
       required final String vehicleNumber,
       final String? imageUrl,
       required final DateTime dateTime,
-      required final List<Product> products,
+      required final List<LoadOutProduct> products,
       required final String ervnumber}) = _$_WarehouseLoadOut;
 
   factory _WarehouseLoadOut.fromJson(Map<String, dynamic> json) =
@@ -308,7 +308,7 @@ abstract class _WarehouseLoadOut implements WarehouseLoadOut {
   @override
   DateTime get dateTime;
   @override
-  List<Product> get products;
+  List<LoadOutProduct> get products;
   @override
   String get ervnumber;
   @override
@@ -317,32 +317,34 @@ abstract class _WarehouseLoadOut implements WarehouseLoadOut {
       throw _privateConstructorUsedError;
 }
 
-Product _$ProductFromJson(Map<String, dynamic> json) {
-  return _Product.fromJson(json);
+LoadOutProduct _$LoadOutProductFromJson(Map<String, dynamic> json) {
+  return _LoadOutProduct.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Product {
+mixin _$LoadOutProduct {
   String get productId => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+  $LoadOutProductCopyWith<LoadOutProduct> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res, Product>;
+abstract class $LoadOutProductCopyWith<$Res> {
+  factory $LoadOutProductCopyWith(
+          LoadOutProduct value, $Res Function(LoadOutProduct) then) =
+      _$LoadOutProductCopyWithImpl<$Res, LoadOutProduct>;
   @useResult
   $Res call({String productId, int quantity});
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res, $Val extends Product>
-    implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$LoadOutProductCopyWithImpl<$Res, $Val extends LoadOutProduct>
+    implements $LoadOutProductCopyWith<$Res> {
+  _$LoadOutProductCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -369,20 +371,22 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$_LoadOutProductCopyWith<$Res>
+    implements $LoadOutProductCopyWith<$Res> {
+  factory _$$_LoadOutProductCopyWith(
+          _$_LoadOutProduct value, $Res Function(_$_LoadOutProduct) then) =
+      __$$_LoadOutProductCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String productId, int quantity});
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$_Product>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+class __$$_LoadOutProductCopyWithImpl<$Res>
+    extends _$LoadOutProductCopyWithImpl<$Res, _$_LoadOutProduct>
+    implements _$$_LoadOutProductCopyWith<$Res> {
+  __$$_LoadOutProductCopyWithImpl(
+      _$_LoadOutProduct _value, $Res Function(_$_LoadOutProduct) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -391,7 +395,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? productId = null,
     Object? quantity = null,
   }) {
-    return _then(_$_Product(
+    return _then(_$_LoadOutProduct(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -406,11 +410,11 @@ class __$$_ProductCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Product implements _Product {
-  const _$_Product({required this.productId, required this.quantity});
+class _$_LoadOutProduct implements _LoadOutProduct {
+  const _$_LoadOutProduct({required this.productId, required this.quantity});
 
-  factory _$_Product.fromJson(Map<String, dynamic> json) =>
-      _$$_ProductFromJson(json);
+  factory _$_LoadOutProduct.fromJson(Map<String, dynamic> json) =>
+      _$$_LoadOutProductFromJson(json);
 
   @override
   final String productId;
@@ -419,14 +423,14 @@ class _$_Product implements _Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, quantity: $quantity)';
+    return 'LoadOutProduct(productId: $productId, quantity: $quantity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$_LoadOutProduct &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.quantity, quantity) ||
@@ -440,23 +444,24 @@ class _$_Product implements _Product {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$_LoadOutProductCopyWith<_$_LoadOutProduct> get copyWith =>
+      __$$_LoadOutProductCopyWithImpl<_$_LoadOutProduct>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductToJson(
+    return _$$_LoadOutProductToJson(
       this,
     );
   }
 }
 
-abstract class _Product implements Product {
-  const factory _Product(
+abstract class _LoadOutProduct implements LoadOutProduct {
+  const factory _LoadOutProduct(
       {required final String productId,
-      required final int quantity}) = _$_Product;
+      required final int quantity}) = _$_LoadOutProduct;
 
-  factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
+  factory _LoadOutProduct.fromJson(Map<String, dynamic> json) =
+      _$_LoadOutProduct.fromJson;
 
   @override
   String get productId;
@@ -464,6 +469,6 @@ abstract class _Product implements Product {
   int get quantity;
   @override
   @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  _$$_LoadOutProductCopyWith<_$_LoadOutProduct> get copyWith =>
       throw _privateConstructorUsedError;
 }

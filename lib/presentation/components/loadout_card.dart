@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:invento/data/models/WarehouseLoadOut/warehouse_load_out.dart';
 
 class LoadOutCard extends StatelessWidget {
   const LoadOutCard({
     Key? key,
     required this.vehicleNumber,
-    required this.ervNumber,
+    required this.ervnumber,
     required this.dateTime,
     required this.products,
     this.onDelete,
@@ -13,9 +14,9 @@ class LoadOutCard extends StatelessWidget {
   }) : super(key: key);
 
   final String vehicleNumber;
-  final String ervNumber;
+  final String ervnumber;
   final DateTime dateTime;
-  final List<String> products;
+  final List<LoadOutProduct> products;
 
   final void Function()? onDelete;
   final void Function()? onEdit;
@@ -67,16 +68,18 @@ class LoadOutCard extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    IconButton(
-                      onPressed: onDelete,
-                      padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(),
-                      icon: const Icon(
-                        Icons.delete,
-                        size: 18,
-                        color: Colors.redAccent,
+                    if (onDelete != null) ...[
+                      IconButton(
+                        onPressed: onDelete,
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        icon: const Icon(
+                          Icons.delete,
+                          size: 18,
+                          color: Colors.redAccent,
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
               ],
@@ -91,7 +94,7 @@ class LoadOutCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  ervNumber,
+                  ervnumber,
                   style: const TextStyle(color: Colors.grey),
                 ),
               ],

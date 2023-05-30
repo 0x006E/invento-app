@@ -15,7 +15,7 @@ _$_WarehouseLoadOut _$$_WarehouseLoadOutFromJson(Map<String, dynamic> json) =>
       imageUrl: json['imageUrl'] as String?,
       dateTime: DateTime.parse(json['dateTime'] as String),
       products: (json['products'] as List<dynamic>)
-          .map((e) => Product.fromJson(e as Map<String, dynamic>))
+          .map((e) => LoadOutProduct.fromJson(e as Map<String, dynamic>))
           .toList(),
       ervnumber: json['ervnumber'] as String,
     );
@@ -40,12 +40,13 @@ Map<String, dynamic> _$$_WarehouseLoadOutToJson(_$_WarehouseLoadOut instance) {
   return val;
 }
 
-_$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
+_$_LoadOutProduct _$$_LoadOutProductFromJson(Map<String, dynamic> json) =>
+    _$_LoadOutProduct(
       productId: json['productId'] as String,
       quantity: json['quantity'] as int,
     );
 
-Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
+Map<String, dynamic> _$$_LoadOutProductToJson(_$_LoadOutProduct instance) =>
     <String, dynamic>{
       'productId': instance.productId,
       'quantity': instance.quantity,

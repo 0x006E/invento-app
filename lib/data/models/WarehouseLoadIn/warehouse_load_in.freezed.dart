@@ -301,7 +301,7 @@ LoadInProduct _$LoadInProductFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LoadInProduct {
   String get productId => throw _privateConstructorUsedError;
-  double get quantity => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -315,7 +315,7 @@ abstract class $LoadInProductCopyWith<$Res> {
           LoadInProduct value, $Res Function(LoadInProduct) then) =
       _$LoadInProductCopyWithImpl<$Res, LoadInProduct>;
   @useResult
-  $Res call({String productId, double quantity});
+  $Res call({String productId, int quantity});
 }
 
 /// @nodoc
@@ -342,7 +342,7 @@ class _$LoadInProductCopyWithImpl<$Res, $Val extends LoadInProduct>
       quantity: null == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ) as $Val);
   }
 }
@@ -355,7 +355,7 @@ abstract class _$$_LoadInProductCopyWith<$Res>
       __$$_LoadInProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String productId, double quantity});
+  $Res call({String productId, int quantity});
 }
 
 /// @nodoc
@@ -380,7 +380,7 @@ class __$$_LoadInProductCopyWithImpl<$Res>
       quantity: null == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -396,7 +396,7 @@ class _$_LoadInProduct implements _LoadInProduct {
   @override
   final String productId;
   @override
-  final double quantity;
+  final int quantity;
 
   @override
   String toString() {
@@ -435,7 +435,7 @@ class _$_LoadInProduct implements _LoadInProduct {
 abstract class _LoadInProduct implements LoadInProduct {
   const factory _LoadInProduct(
       {required final String productId,
-      required final double quantity}) = _$_LoadInProduct;
+      required final int quantity}) = _$_LoadInProduct;
 
   factory _LoadInProduct.fromJson(Map<String, dynamic> json) =
       _$_LoadInProduct.fromJson;
@@ -443,7 +443,7 @@ abstract class _LoadInProduct implements LoadInProduct {
   @override
   String get productId;
   @override
-  double get quantity;
+  int get quantity;
   @override
   @JsonKey(ignore: true)
   _$$_LoadInProductCopyWith<_$_LoadInProduct> get copyWith =>
